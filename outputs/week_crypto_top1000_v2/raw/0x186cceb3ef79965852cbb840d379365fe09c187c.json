@@ -1,0 +1,297 @@
+{
+  "leaderboard": {
+    "rank": "879",
+    "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+    "userName": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 32593.548081,
+    "pnl": 5381.825142049194,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-03-15T07:47:55.863436Z",
+    "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+    "displayUsernamePublic": true,
+    "pseudonym": "Wrathful-Urgency",
+    "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+    "users": [
+      {
+        "id": "6717690",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "asset": "53871780365151386629226515608960369445542635482908110928489429430123093522377",
+      "conditionId": "0xd32f73b7d90cd18287e48b11ff855bee97543ad87ab38ef3fffde06504e5c2bd",
+      "avgPrice": 0.880637,
+      "totalBought": 2769.48359,
+      "realizedPnl": 327.803961,
+      "curPrice": 1,
+      "title": "Will Bitcoin reach $75,000 in March?",
+      "slug": "will-bitcoin-reach-75k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "No",
+      "oppositeAsset": "33706688152544336499821558582006595413982659114846957628399804081912334837275",
+      "endDate": "2026-04-01T00:00:00Z",
+      "timestamp": 1773707389
+    },
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "asset": "65167081092004375936366452100003886968504846708341439536786103491950757656047",
+      "conditionId": "0x6da1e94025a1c2abfd7817b529deb6d87da67a2fea826ccbe8a6709c780bdb42",
+      "avgPrice": 0.886863,
+      "totalBought": 2441.357577,
+      "realizedPnl": 273.765664,
+      "curPrice": 1,
+      "title": "Will Andrea Kimi Antonelli win the 2026 F1 Chinese Grand Prix?",
+      "slug": "f1-chinese-grand-prix-winner-antonelli-2026-03-15",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/f1-constructors-champion-2025-PULWDiyoGXZ7.png",
+      "eventSlug": "f1-chinese-grand-prix-winner-2026-03-15",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "No",
+      "oppositeAsset": "68674157702593513709719073405577731658697949046668636314117622024006462255058",
+      "endDate": "2026-03-22T00:00:00Z",
+      "timestamp": 1773570091
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "side": "BUY",
+      "asset": "64087619211543545431479218048939484178441767712621033463416084593776314629222",
+      "conditionId": "0x36912c9832f0fd104d734b579fb9b3a1b31bbdc946a67356723407e3bdc96dbc",
+      "size": 20.97,
+      "price": 0.681,
+      "timestamp": 1774360799,
+      "title": "Will Bitcoin dip to $65,000 in March?",
+      "slug": "will-bitcoin-dip-to-65k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+      "pseudonym": "Wrathful-Urgency",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x8816a7cacca57c9fd9912c87d5c792f5504d574f65a265c91947471c7e3fe919"
+    },
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "side": "BUY",
+      "asset": "64087619211543545431479218048939484178441767712621033463416084593776314629222",
+      "conditionId": "0x36912c9832f0fd104d734b579fb9b3a1b31bbdc946a67356723407e3bdc96dbc",
+      "size": 11.25,
+      "price": 0.689,
+      "timestamp": 1774360657,
+      "title": "Will Bitcoin dip to $65,000 in March?",
+      "slug": "will-bitcoin-dip-to-65k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+      "pseudonym": "Wrathful-Urgency",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xc023d3f983dde642f54d312cde2d3879cb8b9f41556fbd1967cfc50970695fb0"
+    },
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "side": "SELL",
+      "asset": "53871780365151386629226515608960369445542635482908110928489429430123093522377",
+      "conditionId": "0xd32f73b7d90cd18287e48b11ff855bee97543ad87ab38ef3fffde06504e5c2bd",
+      "size": 2769.48,
+      "price": 0.999,
+      "timestamp": 1773707389,
+      "title": "Will Bitcoin reach $75,000 in March?",
+      "slug": "will-bitcoin-reach-75k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+      "pseudonym": "Wrathful-Urgency",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x6bb28c1122909753ca8010bfdd741a133ead1a75be34522832eeae4ebc504dee"
+    },
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "side": "BUY",
+      "asset": "53871780365151386629226515608960369445542635482908110928489429430123093522377",
+      "conditionId": "0xd32f73b7d90cd18287e48b11ff855bee97543ad87ab38ef3fffde06504e5c2bd",
+      "size": 2769.48359,
+      "price": 0.8806370992073652,
+      "timestamp": 1773669311,
+      "title": "Will Bitcoin reach $75,000 in March?",
+      "slug": "will-bitcoin-reach-75k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+      "pseudonym": "Wrathful-Urgency",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x386c38709e6384700ee8e3475d714ef5d6967f30839505afb5d51a0976838bfe"
+    },
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "side": "SELL",
+      "asset": "65167081092004375936366452100003886968504846708341439536786103491950757656047",
+      "conditionId": "0x6da1e94025a1c2abfd7817b529deb6d87da67a2fea826ccbe8a6709c780bdb42",
+      "size": 2441.35,
+      "price": 0.999,
+      "timestamp": 1773570091,
+      "title": "Will Andrea Kimi Antonelli win the 2026 F1 Chinese Grand Prix?",
+      "slug": "f1-chinese-grand-prix-winner-antonelli-2026-03-15",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/f1-constructors-champion-2025-PULWDiyoGXZ7.png",
+      "eventSlug": "f1-chinese-grand-prix-winner-2026-03-15",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+      "pseudonym": "Wrathful-Urgency",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x7ca323c4e589805a0c4035fcc83e61f4bce4443f120fcd014a35bf5ae201926c"
+    },
+    {
+      "proxyWallet": "0x186cceb3ef79965852cbb840d379365fe09c187c",
+      "side": "BUY",
+      "asset": "65167081092004375936366452100003886968504846708341439536786103491950757656047",
+      "conditionId": "0x6da1e94025a1c2abfd7817b529deb6d87da67a2fea826ccbe8a6709c780bdb42",
+      "size": 2441.357577,
+      "price": 0.8868631188638042,
+      "timestamp": 1773561461,
+      "title": "Will Andrea Kimi Antonelli win the 2026 F1 Chinese Grand Prix?",
+      "slug": "f1-chinese-grand-prix-winner-antonelli-2026-03-15",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/f1-constructors-champion-2025-PULWDiyoGXZ7.png",
+      "eventSlug": "f1-chinese-grand-prix-winner-2026-03-15",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+      "pseudonym": "Wrathful-Urgency",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x0d9f060c22b53a185c8f7a3d6de178b5f25a32b535b70aabf199c959e81a3ae5"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "0x186cCeB3Ef79965852cbb840D379365fe09c187c-1773560875191",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 62.36,
+    "score_profitability": 77.94,
+    "score_stability": 97.61,
+    "score_copyability": 38.23,
+    "score_focus": 56.67,
+    "score_execution": 0.0,
+    "realized_pnl_90d": 601.5696,
+    "avg_trade_pnl_90d": 300.7848,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 38.2108,
+    "avg_trades_per_day_30d": 0.2,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 0.6667,
+    "btc_ratio": 0.6667,
+    "market_concentration_hhi": 0.3333,
+    "median_trade_notional": 2302.0293,
+    "avg_trade_notional": 1638.6185,
+    "trades_count": 6,
+    "closed_positions_count": 2
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 5.0,
+    "cycle5_first_minute_single_count": 1.0,
+    "cycle5_first_minute_single_ratio": 0.2
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

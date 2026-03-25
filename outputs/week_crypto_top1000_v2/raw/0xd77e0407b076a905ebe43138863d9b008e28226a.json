@@ -1,0 +1,274 @@
+{
+  "leaderboard": {
+    "rank": "880",
+    "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+    "userName": "0xd77e0407b076a905EBe43138863d9B008E28226a-1772607102402",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 58.016,
+    "pnl": 5371.143465,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-03-04T06:51:43.077565Z",
+    "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+    "displayUsernamePublic": true,
+    "pseudonym": "Extraneous-Compassionate",
+    "name": "0xd77e0407b076a905EBe43138863d9B008E28226a-1772607102402",
+    "users": [
+      {
+        "id": "6425178",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+      "asset": "91210909275760466368119645329830314136060110104539611948773072592732006086147",
+      "conditionId": "0x5a8862f0fbfd5e4ae8817876a290fbf39997618fde064749513a481c4fb6feda",
+      "avgPrice": 0.996,
+      "totalBought": 57.9315,
+      "realizedPnl": 0.231726,
+      "curPrice": 1,
+      "title": "Will XRP dip to $0.90 March 16-22?",
+      "slug": "will-xrp-dip-to-0pt9-march-16-22",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/XRP-logo.png",
+      "eventSlug": "what-price-will-xrp-hit-march-16-22",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "83854999979682389484331806337501203987365577768270020932873767844419533509891",
+      "endDate": "2026-03-23T00:00:00Z",
+      "timestamp": 1774405627
+    },
+    {
+      "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+      "asset": "72947752512925085808216379620105279755635680218725524508925479424336462511889",
+      "conditionId": "0x2710a76e2a61e7461598f6b5bfaa8696998556bbffab55c10061b5b6dee77051",
+      "avgPrice": 0.9979999999999999,
+      "totalBought": 57.695,
+      "realizedPnl": 0.11539,
+      "curPrice": 1,
+      "title": "Will Ethereum dip to $1,300 March 9-15?",
+      "slug": "will-ethereum-dip-to-1300-march-9-15",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-march-9-15",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "19998992528074943527951461934385996316533736741958787435173696144892282807453",
+      "endDate": "2026-03-16T00:00:00Z",
+      "timestamp": 1773886697
+    },
+    {
+      "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+      "asset": "39910899655789876712947554359909367979221778415291825313404848431584092628417",
+      "conditionId": "0xde261e9d9b5fb2101f4d332a4e0e8580b4bd80e20225da36f190569cec323d77",
+      "avgPrice": 0.42,
+      "totalBought": 9259.993792,
+      "realizedPnl": 5370.796399,
+      "curPrice": 1,
+      "title": "Will the price of Bitcoin be above $68,000 on March 10?",
+      "slug": "bitcoin-above-68k-on-march-10",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-above-on-march-10",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "No",
+      "oppositeAsset": "102216126157618112471228426378138804721260525757301343787146985608983475679773",
+      "endDate": "2026-03-10T00:00:00Z",
+      "timestamp": 1773194677
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+      "side": "BUY",
+      "asset": "10991288051771033045987701582574313249966396391518122528796837181761310408875",
+      "conditionId": "0x66d617b24ced8c52141995137e167be3f82b921d4b7117caa64a7f2f5488b452",
+      "size": 28.958,
+      "price": 0.999,
+      "timestamp": 1774405723,
+      "title": "Will BNB reach $1,000 in March?",
+      "slug": "will-bnb-reach-1000-in-march",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/bnb-all-time-high-by-december-31-MRsmG1FSYuSN.png",
+      "eventSlug": "what-price-will-bnb-hit-in-march",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xd77e0407b076a905EBe43138863d9B008E28226a-1772607102402",
+      "pseudonym": "Extraneous-Compassionate",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x7a6c7d81aed3b0fbaeec758c58b0683887accb100b0e41e895e14e9fe56aaed7"
+    },
+    {
+      "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+      "side": "BUY",
+      "asset": "6681917298672275417528850360558488649993785287429317044394665848506449615924",
+      "conditionId": "0x0eceb932e1dbb0f9d13345d7107f12bce1aec3f1a25dd8ddd2b3613e88b80bf5",
+      "size": 29.058,
+      "price": 0.998,
+      "timestamp": 1774405699,
+      "title": "Will XRP dip to $0.60 in March?",
+      "slug": "will-xrp-dip-to-0pt6-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/XRP-logo.png",
+      "eventSlug": "what-price-will-xrp-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xd77e0407b076a905EBe43138863d9B008E28226a-1772607102402",
+      "pseudonym": "Extraneous-Compassionate",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xe677b46cc45f72c09623ac16ae772a520cf6c3eb02fb9a6b8d4668911847e974"
+    },
+    {
+      "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+      "side": "BUY",
+      "asset": "91210909275760466368119645329830314136060110104539611948773072592732006086147",
+      "conditionId": "0x5a8862f0fbfd5e4ae8817876a290fbf39997618fde064749513a481c4fb6feda",
+      "size": 57.9315,
+      "price": 0.996,
+      "timestamp": 1773886795,
+      "title": "Will XRP dip to $0.90 March 16-22?",
+      "slug": "will-xrp-dip-to-0pt9-march-16-22",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/XRP-logo.png",
+      "eventSlug": "what-price-will-xrp-hit-march-16-22",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xd77e0407b076a905EBe43138863d9B008E28226a-1772607102402",
+      "pseudonym": "Extraneous-Compassionate",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x8cf93d5ffa6846d9e148ef313c8ab1abfb5ec1312199d5f0447587f92b798abd"
+    },
+    {
+      "proxyWallet": "0xd77e0407b076a905ebe43138863d9b008e28226a",
+      "side": "BUY",
+      "asset": "72947752512925085808216379620105279755635680218725524508925479424336462511889",
+      "conditionId": "0x2710a76e2a61e7461598f6b5bfaa8696998556bbffab55c10061b5b6dee77051",
+      "size": 57.695,
+      "price": 0.998,
+      "timestamp": 1773311687,
+      "title": "Will Ethereum dip to $1,300 March 9-15?",
+      "slug": "will-ethereum-dip-to-1300-march-9-15",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-march-9-15",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xd77e0407b076a905EBe43138863d9B008E28226a-1772607102402",
+      "pseudonym": "Extraneous-Compassionate",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x8792301f1f64d9659c253860b388072d681a67011943f26f34631cbf93c43c00"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "0xd77e0407b076a905EBe43138863d9B008E28226a-1772607102402",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 63.05,
+    "score_profitability": 88.33,
+    "score_stability": 75.0,
+    "score_copyability": 37.34,
+    "score_focus": 18.75,
+    "score_execution": 87.25,
+    "realized_pnl_90d": 5371.1435,
+    "avg_trade_pnl_90d": 1790.3812,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 3100.7305,
+    "avg_trades_per_day_30d": 0.1333,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 0.25,
+    "btc_ratio": 0.0,
+    "market_concentration_hhi": 0.25,
+    "median_trade_notional": 43.2897,
+    "avg_trade_notional": 43.3021,
+    "trades_count": 4,
+    "closed_positions_count": 3
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 3.0,
+    "cycle5_first_minute_single_count": 0.0,
+    "cycle5_first_minute_single_ratio": 0.0
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

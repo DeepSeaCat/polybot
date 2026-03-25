@@ -1,0 +1,274 @@
+{
+  "leaderboard": {
+    "rank": "502",
+    "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+    "userName": "323554",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 107.001003,
+    "pnl": 9726.950154773313,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-02-18T10:15:20.569396Z",
+    "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+    "displayUsernamePublic": true,
+    "pseudonym": "Swift-Cayenne",
+    "name": "323554",
+    "users": [
+      {
+        "id": "6077435",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+      "asset": "16188544737275557730257428165794982622689818025669655264360555639838757882187",
+      "conditionId": "0x85b03f9a6a641610bc56b5c6267d311d446b94debd080fe919f6ee817933ea45",
+      "avgPrice": 0.999,
+      "totalBought": 106.686,
+      "realizedPnl": 0.106686,
+      "curPrice": 1,
+      "title": "Will Solana reach $130 March 2-8?",
+      "slug": "will-solana-reach-130-march-2-8",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+      "eventSlug": "what-price-will-solana-hit-march-2-8",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "88420789255848091752219407326327124692984296342199625593557729394863124205051",
+      "endDate": "2026-03-09T00:00:00Z",
+      "timestamp": 1774231013
+    },
+    {
+      "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+      "asset": "112730798783733197888805418806924982180879787438643902384637230597828908063117",
+      "conditionId": "0x67ca2de5a2617c3b376464f0b381cf82d1b506b5cca3060e435c1948aafe6a30",
+      "avgPrice": 0.419999,
+      "totalBought": 12390.476189,
+      "realizedPnl": 7186.488580000001,
+      "curPrice": 1,
+      "title": "Will the price of Bitcoin be above $68,000 on March 3?",
+      "slug": "bitcoin-above-68k-on-march-3",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-above-on-march-3",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "No",
+      "oppositeAsset": "31569127555930775132206296291968378834466308805486507893844936526057193186564",
+      "endDate": "2026-03-03T00:00:00Z",
+      "timestamp": 1772858575
+    },
+    {
+      "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+      "asset": "100194496419690475296547483980127958257517783539813024022681836380434095360528",
+      "conditionId": "0x9d9b405f85f2676b03d87d32fc1ed10f0fadc93a5e20be8c3fc77b5fc3dfa160",
+      "avgPrice": 0.999,
+      "totalBought": 106.106,
+      "realizedPnl": 0.106106,
+      "curPrice": 1,
+      "title": "Will Solana reach $110 February 23-March 1?",
+      "slug": "will-solana-reach-110-february-23-march-1",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+      "eventSlug": "what-price-will-solana-hit-february-23-march-1",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "91095199790439486074841100005427840380908999183848543814525569857415373569704",
+      "endDate": "2026-03-02T00:00:00Z",
+      "timestamp": 1772858575
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+      "side": "BUY",
+      "asset": "56366864139724987693887346001806540156648993876362424578246425481555539891929",
+      "conditionId": "0x3a211e9f57f059f7b100d78314cb4d94c351746e8e2e8b732c41fc5f969e9337",
+      "size": 107.001003,
+      "price": 0.9970000000841114,
+      "timestamp": 1774231033,
+      "title": "Will Solana reach $160 in March?",
+      "slug": "will-solana-reach-160-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+      "eventSlug": "what-price-will-solana-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "323554",
+      "pseudonym": "Swift-Cayenne",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x3b4ba2458ba6720979d035d460126b9979d972ccbe8765d848a530a67896dc2d"
+    },
+    {
+      "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+      "side": "BUY",
+      "asset": "16188544737275557730257428165794982622689818025669655264360555639838757882187",
+      "conditionId": "0x85b03f9a6a641610bc56b5c6267d311d446b94debd080fe919f6ee817933ea45",
+      "size": 106.686,
+      "price": 0.999,
+      "timestamp": 1772859367,
+      "title": "Will Solana reach $130 March 2-8?",
+      "slug": "will-solana-reach-130-march-2-8",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+      "eventSlug": "what-price-will-solana-hit-march-2-8",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "323554",
+      "pseudonym": "Swift-Cayenne",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x0843537110107b21b5446047d5d14e5842e1f7ca0a2f537dfe6f42de42615028"
+    },
+    {
+      "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+      "side": "BUY",
+      "asset": "112730798783733197888805418806924982180879787438643902384637230597828908063117",
+      "conditionId": "0x67ca2de5a2617c3b376464f0b381cf82d1b506b5cca3060e435c1948aafe6a30",
+      "size": 12390.476189,
+      "price": 0.4199999999693313,
+      "timestamp": 1772341595,
+      "title": "Will the price of Bitcoin be above $68,000 on March 3?",
+      "slug": "bitcoin-above-68k-on-march-3",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-above-on-march-3",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "name": "323554",
+      "pseudonym": "Swift-Cayenne",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xf3ca57a7183ad8d319798940f95ef67ac774c84afa30d06e0468ca1bfc2288d6"
+    },
+    {
+      "proxyWallet": "0x54ef0a7d439958cd7ec7fe1525ac61b8badd20ca",
+      "side": "BUY",
+      "asset": "100194496419690475296547483980127958257517783539813024022681836380434095360528",
+      "conditionId": "0x9d9b405f85f2676b03d87d32fc1ed10f0fadc93a5e20be8c3fc77b5fc3dfa160",
+      "size": 106.106,
+      "price": 0.999,
+      "timestamp": 1772291859,
+      "title": "Will Solana reach $110 February 23-March 1?",
+      "slug": "will-solana-reach-110-february-23-march-1",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+      "eventSlug": "what-price-will-solana-hit-february-23-march-1",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "323554",
+      "pseudonym": "Swift-Cayenne",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x346e82f95f3d49f0f04bfc8ca09e677cd2ba56d155ae869348ac48c4a7ea7650"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "323554",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 69.45,
+    "score_profitability": 88.33,
+    "score_stability": 75.0,
+    "score_copyability": 37.34,
+    "score_focus": 58.75,
+    "score_execution": 95.27,
+    "realized_pnl_90d": 7186.7014,
+    "avg_trade_pnl_90d": 2395.5671,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 5081.6144,
+    "avg_trades_per_day_30d": 0.1333,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 1.0,
+    "btc_ratio": 0.25,
+    "market_concentration_hhi": 0.25,
+    "median_trade_notional": 106.6297,
+    "avg_trade_notional": 1380.8148,
+    "trades_count": 4,
+    "closed_positions_count": 3
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 4.0,
+    "cycle5_first_minute_single_count": 0.0,
+    "cycle5_first_minute_single_ratio": 0.0
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

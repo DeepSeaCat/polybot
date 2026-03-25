@@ -1,0 +1,230 @@
+{
+  "leaderboard": {
+    "rank": "443",
+    "proxyWallet": "0x2f0afa10da2d880d7af26cbf73d57670f589190e",
+    "userName": "deniskeebler",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 0,
+    "pnl": 10605,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-02-26T16:31:39.726893Z",
+    "proxyWallet": "0x2f0afa10da2d880d7af26cbf73d57670f589190e",
+    "displayUsernamePublic": true,
+    "pseudonym": "Nice-Agenda",
+    "name": "deniskeebler",
+    "users": [
+      {
+        "id": "6254627",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0x2f0afa10da2d880d7af26cbf73d57670f589190e",
+      "asset": "38807119068826408058766531613195713473787890890957047264624864268251078417596",
+      "conditionId": "0x7933dcede8e24e0bd2b81b52a3bb6b20dc680e22baa3558d9ad913701553b17d",
+      "avgPrice": 0.5,
+      "totalBought": 12120,
+      "realizedPnl": 6060,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 3, 4AM ET",
+      "slug": "bitcoin-up-or-down-march-3-4am-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-3-4am-et",
+      "outcome": "Down",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Up",
+      "oppositeAsset": "65994814025904324579953989420795635282172686687232353525364118622115456735775",
+      "endDate": "2026-03-03T00:00:00Z",
+      "timestamp": 1772547223
+    },
+    {
+      "proxyWallet": "0x2f0afa10da2d880d7af26cbf73d57670f589190e",
+      "asset": "115680604477446897449813419914602036213504604438475544585958037865156127531615",
+      "conditionId": "0x8eb94277bb7d5ddc733e4bb3322140efe0e65fb8b933cc1b1edba62fd3ad8790",
+      "avgPrice": 0.5,
+      "totalBought": 6060,
+      "realizedPnl": 3030,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 2, 4PM ET",
+      "slug": "bitcoin-up-or-down-march-2-4pm-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-2-4pm-et",
+      "outcome": "Up",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "Down",
+      "oppositeAsset": "30092085041719409706510113311892697256431170589444006918411119078819811746020",
+      "endDate": "2026-03-02T00:00:00Z",
+      "timestamp": 1772506869
+    },
+    {
+      "proxyWallet": "0x2f0afa10da2d880d7af26cbf73d57670f589190e",
+      "asset": "41177081596246923370778101697898382288633656520048205563384415343386672976970",
+      "conditionId": "0x2fedccfbb001935390c0821eb0bdecdafe68d04a677fbfe05e482791995f4935",
+      "avgPrice": 0.5,
+      "totalBought": 3030,
+      "realizedPnl": 1515,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 2, 3AM ET",
+      "slug": "bitcoin-up-or-down-march-2-3am-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-2-3am-et",
+      "outcome": "Up",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "Down",
+      "oppositeAsset": "56192554611525179079362585934756593913075130463295229031275953876435167267526",
+      "endDate": "2026-03-02T00:00:00Z",
+      "timestamp": 1772451617
+    },
+    {
+      "proxyWallet": "0x2f0afa10da2d880d7af26cbf73d57670f589190e",
+      "asset": "91547659336782094477006048465411195707299471257219953651999837961180255793011",
+      "conditionId": "0x4cb30e6a51860d6be96ebaed26cbf8b15195e54877670f965a00ed685af65c6e",
+      "avgPrice": 0.5,
+      "totalBought": 1515,
+      "realizedPnl": 757.5,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 1, 1PM ET",
+      "slug": "bitcoin-up-or-down-march-1-1pm-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-1-1pm-et",
+      "outcome": "Up",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "Down",
+      "oppositeAsset": "104761883127762474267120681428968496663581276762215373895015866955762169403001",
+      "endDate": "2026-03-01T00:00:00Z",
+      "timestamp": 1772420213
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0x2f0afa10da2d880d7af26cbf73d57670f589190e",
+      "side": "BUY",
+      "asset": "38807119068826408058766531613195713473787890890957047264624864268251078417596",
+      "conditionId": "0x7933dcede8e24e0bd2b81b52a3bb6b20dc680e22baa3558d9ad913701553b17d",
+      "size": 12120,
+      "price": 0.5,
+      "timestamp": 1772514253,
+      "title": "Bitcoin Up or Down - March 3, 4AM ET",
+      "slug": "bitcoin-up-or-down-march-3-4am-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-3-4am-et",
+      "outcome": "Down",
+      "outcomeIndex": 1,
+      "name": "deniskeebler",
+      "pseudonym": "Nice-Agenda",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xad5e005eff7765960579fdb3c6fefa7a5367d43d06192a9be5c452cc5facd07c"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "deniskeebler",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 71.38,
+    "score_profitability": 88.33,
+    "score_stability": 100.0,
+    "score_copyability": 36.03,
+    "score_focus": 100.0,
+    "score_execution": 0.0,
+    "realized_pnl_90d": 11362.5,
+    "avg_trade_pnl_90d": 2840.625,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 0.0,
+    "avg_trades_per_day_30d": 0.0333,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 1.0,
+    "btc_ratio": 1.0,
+    "market_concentration_hhi": 1.0,
+    "median_trade_notional": 6060.0,
+    "avg_trade_notional": 6060.0,
+    "trades_count": 1,
+    "closed_positions_count": 4
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 1.0,
+    "cycle5_first_minute_single_count": 0.0,
+    "cycle5_first_minute_single_ratio": 0.0
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

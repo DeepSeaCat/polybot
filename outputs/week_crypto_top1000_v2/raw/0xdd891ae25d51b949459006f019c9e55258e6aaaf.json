@@ -1,0 +1,274 @@
+{
+  "leaderboard": {
+    "rank": "963",
+    "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+    "userName": "0xDd891Ae25D51B949459006F019c9E55258E6AAAf-1772084892043",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 58.475333,
+    "pnl": 4821.7708058858325,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-02-26T05:48:12.747774Z",
+    "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+    "displayUsernamePublic": true,
+    "pseudonym": "Jovial-Authenticity",
+    "name": "0xDd891Ae25D51B949459006F019c9E55258E6AAAf-1772084892043",
+    "users": [
+      {
+        "id": "6245450",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+      "asset": "51223983618026540373653384328212431779323415102042820289150430829426140286212",
+      "conditionId": "0x3a57ed8e828e3527f3f5598886aea5b72d9a80822e6ebb57bf4651eaf955a809",
+      "avgPrice": 0.998999,
+      "totalBought": 58.328327,
+      "realizedPnl": 0.058386,
+      "curPrice": 1,
+      "title": "Will Bitcoin reach $86,000 March 16-22?",
+      "slug": "will-bitcoin-reach-86k-march-16-22",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-march-16-22",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "89515027286199763985190719154202596531579854491760578347058199220352125031993",
+      "endDate": "2026-03-23T00:00:00Z",
+      "timestamp": 1774342125
+    },
+    {
+      "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+      "asset": "45146592254157073172013670551151626566685681492132792692199609630024112688153",
+      "conditionId": "0xad8d558e38de895be70ac2760178f3127995f725b8c6e7164ee9ff81cbec9cb6",
+      "avgPrice": 0.999,
+      "totalBought": 58.268,
+      "realizedPnl": 0.058268,
+      "curPrice": 1,
+      "title": "Will Solana reach $140 March 2-8?",
+      "slug": "will-solana-reach-140-march-2-8",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+      "eventSlug": "what-price-will-solana-hit-march-2-8",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "90408142714729106302590403460705965661528545644297439371933871515761380553829",
+      "endDate": "2026-03-09T00:00:00Z",
+      "timestamp": 1774067125
+    },
+    {
+      "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+      "asset": "111969028078719993469177331708958193953648028162442166034294236966540681034954",
+      "conditionId": "0xda0451858ed66d110425dbc50ecfdaa1f7a841e8d951c66eeefe36e1d9f57785",
+      "avgPrice": 0.44,
+      "totalBought": 8609.992856,
+      "realizedPnl": 4821.595999,
+      "curPrice": 1,
+      "title": "Will the price of Bitcoin be above $68,000 on March 5?",
+      "slug": "bitcoin-above-68k-on-march-5",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-above-on-march-5",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "No",
+      "oppositeAsset": "12795999705521478860780533447378076471418411364210599403570790575772100825681",
+      "endDate": "2026-03-05T00:00:00Z",
+      "timestamp": 1772762255
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+      "side": "BUY",
+      "asset": "40865732454181129284141002213291490442997974733798116450386050673095273992071",
+      "conditionId": "0x027f673fb1a5f561630773407e511755d8e2e2282dd48a7df76c654ef1742c8a",
+      "size": 29.589,
+      "price": 0.998,
+      "timestamp": 1774342189,
+      "title": "Will Ethereum dip to $600 in March?",
+      "slug": "will-ethereum-dip-to-600-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xDd891Ae25D51B949459006F019c9E55258E6AAAf-1772084892043",
+      "pseudonym": "Jovial-Authenticity",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x70dc03ada40885781a6d1f4e382a92594c3cd332ad4615d29f919deec811cd1d"
+    },
+    {
+      "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+      "side": "BUY",
+      "asset": "85022547795006323255476630181220238663596247799515417542043360726630520756157",
+      "conditionId": "0x5f5f03e5f951611f2d292afe7b69ebe1d6732d38ce0680dfdb19ae1446d1a9e3",
+      "size": 28.886333,
+      "price": 0.9969999999653816,
+      "timestamp": 1774342171,
+      "title": "Will Ethereum reach $3,600 in March?",
+      "slug": "will-ethereum-reach-3600-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xDd891Ae25D51B949459006F019c9E55258E6AAAf-1772084892043",
+      "pseudonym": "Jovial-Authenticity",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xc9ae1f303ba58b2b39fd7ca480fbdae6851e3ca2622b55cb240acc7c97e570e9"
+    },
+    {
+      "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+      "side": "BUY",
+      "asset": "51223983618026540373653384328212431779323415102042820289150430829426140286212",
+      "conditionId": "0x3a57ed8e828e3527f3f5598886aea5b72d9a80822e6ebb57bf4651eaf955a809",
+      "size": 58.328327,
+      "price": 0.9989999884618669,
+      "timestamp": 1774067167,
+      "title": "Will Bitcoin reach $86,000 March 16-22?",
+      "slug": "will-bitcoin-reach-86k-march-16-22",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-march-16-22",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xDd891Ae25D51B949459006F019c9E55258E6AAAf-1772084892043",
+      "pseudonym": "Jovial-Authenticity",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x04040c28e4ee26c7598cbc1e99274eda35725feefce5c47419e42178b7d052e5"
+    },
+    {
+      "proxyWallet": "0xdd891ae25d51b949459006f019c9e55258e6aaaf",
+      "side": "BUY",
+      "asset": "45146592254157073172013670551151626566685681492132792692199609630024112688153",
+      "conditionId": "0xad8d558e38de895be70ac2760178f3127995f725b8c6e7164ee9ff81cbec9cb6",
+      "size": 58.268,
+      "price": 0.999,
+      "timestamp": 1772781579,
+      "title": "Will Solana reach $140 March 2-8?",
+      "slug": "will-solana-reach-140-march-2-8",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+      "eventSlug": "what-price-will-solana-hit-march-2-8",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0xDd891Ae25D51B949459006F019c9E55258E6AAAf-1772084892043",
+      "pseudonym": "Jovial-Authenticity",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x4a0c4df01dc260694bff75b062ed946f4da5ee6b5e1c485c2b67fbc427bf94ee"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "0xDd891Ae25D51B949459006F019c9E55258E6AAAf-1772084892043",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 68.65,
+    "score_profitability": 88.33,
+    "score_stability": 75.0,
+    "score_copyability": 37.34,
+    "score_focus": 58.75,
+    "score_execution": 87.33,
+    "realized_pnl_90d": 4821.7127,
+    "avg_trade_pnl_90d": 1607.2376,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 2783.7161,
+    "avg_trades_per_day_30d": 0.1333,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 1.0,
+    "btc_ratio": 0.25,
+    "market_concentration_hhi": 0.25,
+    "median_trade_notional": 43.8698,
+    "avg_trade_notional": 43.7023,
+    "trades_count": 4,
+    "closed_positions_count": 3
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 3.0,
+    "cycle5_first_minute_single_count": 0.0,
+    "cycle5_first_minute_single_ratio": 0.0
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

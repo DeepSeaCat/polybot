@@ -1,0 +1,195 @@
+{
+  "leaderboard": {
+    "rank": "404",
+    "proxyWallet": "0xef2e9dc68a37b8d4c63d644bb1c19e73ce59d769",
+    "userName": "mcccg",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 0,
+    "pnl": 11651.848544051776,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-03-12T09:55:41.635721Z",
+    "proxyWallet": "0xef2e9dc68a37b8d4c63d644bb1c19e73ce59d769",
+    "displayUsernamePublic": true,
+    "pseudonym": "Silver-Clef",
+    "name": "mcccg",
+    "users": [
+      {
+        "id": "6654640",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [],
+  "trades": [
+    {
+      "proxyWallet": "0xef2e9dc68a37b8d4c63d644bb1c19e73ce59d769",
+      "side": "BUY",
+      "asset": "54889978754285077080670037685297679717001917285386523487998069756162812161763",
+      "conditionId": "0x4290a4aa43a0707f0f1193c73667074f2ef5ce8ab5d6fcdd4ca645bfe1528f03",
+      "size": 2584.039996,
+      "price": 0.7497368461784444,
+      "timestamp": 1773311673,
+      "title": "Will Bitcoin dip to $60,000 in March?",
+      "slug": "will-bitcoin-dip-to-60k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "mcccg",
+      "pseudonym": "Silver-Clef",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x822873bf9f15bb7d4da65da0f6763f6f9d447cf1dd6648f021b645deed4bf680"
+    },
+    {
+      "proxyWallet": "0xef2e9dc68a37b8d4c63d644bb1c19e73ce59d769",
+      "side": "BUY",
+      "asset": "54889978754285077080670037685297679717001917285386523487998069756162812161763",
+      "conditionId": "0x4290a4aa43a0707f0f1193c73667074f2ef5ce8ab5d6fcdd4ca645bfe1528f03",
+      "size": 880.16,
+      "price": 0.74,
+      "timestamp": 1773311149,
+      "title": "Will Bitcoin dip to $60,000 in March?",
+      "slug": "will-bitcoin-dip-to-60k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "mcccg",
+      "pseudonym": "Silver-Clef",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xb2be7da5978c967fcb15c0e4e0abd32d8a91ed61307d54038cfd6c5410c0a054"
+    },
+    {
+      "proxyWallet": "0xef2e9dc68a37b8d4c63d644bb1c19e73ce59d769",
+      "side": "BUY",
+      "asset": "54889978754285077080670037685297679717001917285386523487998069756162812161763",
+      "conditionId": "0x4290a4aa43a0707f0f1193c73667074f2ef5ce8ab5d6fcdd4ca645bfe1528f03",
+      "size": 808.6,
+      "price": 0.73,
+      "timestamp": 1773310575,
+      "title": "Will Bitcoin dip to $60,000 in March?",
+      "slug": "will-bitcoin-dip-to-60k-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "what-price-will-bitcoin-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "mcccg",
+      "pseudonym": "Silver-Clef",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xcd3160f0442dcefd960f0c50ba0a46ba40c5a1797ceb00f233b429f5d4f63b09"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "mcccg",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 56.38,
+    "score_profitability": 22.5,
+    "score_stability": 100.0,
+    "score_copyability": 36.9,
+    "score_focus": 100.0,
+    "score_execution": 32.25,
+    "realized_pnl_90d": 0,
+    "avg_trade_pnl_90d": 0.0,
+    "profit_factor_90d": 0.0,
+    "win_rate_90d": 0.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 0.0,
+    "avg_trades_per_day_30d": 0.1,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 1.0,
+    "btc_ratio": 1.0,
+    "market_concentration_hhi": 1.0,
+    "median_trade_notional": 651.3184,
+    "avg_trade_notional": 1059.6488,
+    "trades_count": 3,
+    "closed_positions_count": 0
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 3.0,
+    "cycle5_first_minute_single_count": 1.0,
+    "cycle5_first_minute_single_ratio": 0.3333333333333333
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

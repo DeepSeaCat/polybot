@@ -1,0 +1,213 @@
+{
+  "leaderboard": {
+    "rank": "748",
+    "proxyWallet": "0x5a4cdd2dca69a15e51015786367fc6df6d24ed54",
+    "userName": "0x5A4CDD2Dca69A15E51015786367fC6Df6d24Ed54-1772528495287",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 0,
+    "pnl": 6229.334427999999,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-03-03T09:01:36.597308Z",
+    "proxyWallet": "0x5a4cdd2dca69a15e51015786367fc6df6d24ed54",
+    "displayUsernamePublic": true,
+    "pseudonym": "Enchanting-Essay",
+    "name": "0x5A4CDD2Dca69A15E51015786367fC6Df6d24Ed54-1772528495287",
+    "users": [
+      {
+        "id": "6398209",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0x5a4cdd2dca69a15e51015786367fc6df6d24ed54",
+      "asset": "72947752512925085808216379620105279755635680218725524508925479424336462511889",
+      "conditionId": "0x2710a76e2a61e7461598f6b5bfaa8696998556bbffab55c10061b5b6dee77051",
+      "avgPrice": 0.9983800000000002,
+      "totalBought": 53.80700000000001,
+      "realizedPnl": 0.087167,
+      "curPrice": 1,
+      "title": "Will Ethereum dip to $1,300 March 9-15?",
+      "slug": "will-ethereum-dip-to-1300-march-9-15",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-march-9-15",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "19998992528074943527951461934385996316533736741958787435173696144892282807453",
+      "endDate": "2026-03-16T00:00:00Z",
+      "timestamp": 1774077621
+    },
+    {
+      "proxyWallet": "0x5a4cdd2dca69a15e51015786367fc6df6d24ed54",
+      "asset": "101511490522488590768155834695130904728697183252326892601173494574387064019991",
+      "conditionId": "0x006240f53bf163080d1a5910954d11196f0a5ba115bbde68e0b16a765904d88b",
+      "avgPrice": 0.42,
+      "totalBought": 10739.988618,
+      "realizedPnl": 6229.193397999999,
+      "curPrice": 1,
+      "title": "Will the price of Ethereum be between $2,000 and $2,100 on March 11?",
+      "slug": "will-the-price-of-ethereum-be-between-2000-2100-on-march-11",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "ethereum-price-on-march-11",
+      "outcome": "Yes",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "No",
+      "oppositeAsset": "45587515359295052067389862702742465575021062631867546712768148292023860551423",
+      "endDate": "2026-03-11T00:00:00Z",
+      "timestamp": 1773279685
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0x5a4cdd2dca69a15e51015786367fc6df6d24ed54",
+      "side": "BUY",
+      "asset": "2775533794581378422777663383123221739950730618779698513662996602858736402571",
+      "conditionId": "0x3e494ff418bfaee24b79211829416c3638b277329f62f370d3079bbfeca15238",
+      "size": 53.863,
+      "price": 0.999,
+      "timestamp": 1774077673,
+      "title": "Will Ethereum reach $2,450 on March 21?",
+      "slug": "will-ethereum-reach-2450-on-march-21",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-on-march-21",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x5A4CDD2Dca69A15E51015786367fC6Df6d24Ed54-1772528495287",
+      "pseudonym": "Enchanting-Essay",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x9a2754fe8dd30337117ab62aa219f74a3a10ddd93fcd3526d405b6a1b0ebbd4d"
+    },
+    {
+      "proxyWallet": "0x5a4cdd2dca69a15e51015786367fc6df6d24ed54",
+      "side": "BUY",
+      "asset": "72947752512925085808216379620105279755635680218725524508925479424336462511889",
+      "conditionId": "0x2710a76e2a61e7461598f6b5bfaa8696998556bbffab55c10061b5b6dee77051",
+      "size": 53.807,
+      "price": 0.99838037801773,
+      "timestamp": 1773312571,
+      "title": "Will Ethereum dip to $1,300 March 9-15?",
+      "slug": "will-ethereum-dip-to-1300-march-9-15",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-march-9-15",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x5A4CDD2Dca69A15E51015786367fC6Df6d24Ed54-1772528495287",
+      "pseudonym": "Enchanting-Essay",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x5443644782527c1470e5760cc5e0c2cabab8a9e6351382a50ec756445720de05"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "0x5A4CDD2Dca69A15E51015786367fC6Df6d24Ed54-1772528495287",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 68.77,
+    "score_profitability": 88.33,
+    "score_stability": 75.0,
+    "score_copyability": 36.47,
+    "score_focus": 60.0,
+    "score_execution": 88.8,
+    "realized_pnl_90d": 6229.2806,
+    "avg_trade_pnl_90d": 3114.6403,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 4404.6433,
+    "avg_trades_per_day_30d": 0.0667,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 1.0,
+    "btc_ratio": 0.0,
+    "market_concentration_hhi": 0.5,
+    "median_trade_notional": 53.7645,
+    "avg_trade_notional": 53.7645,
+    "trades_count": 2,
+    "closed_positions_count": 2
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 2.0,
+    "cycle5_first_minute_single_count": 0.0,
+    "cycle5_first_minute_single_ratio": 0.0
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "leaderboard": {
+    "rank": "898",
+    "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+    "userName": "0x778f2e2bcD50e54fED66EcF897A1Cab6308Bb69e-1772181488598",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 57.061982,
+    "pnl": 5241.221142968982,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-02-27T08:38:09.241399Z",
+    "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+    "displayUsernamePublic": true,
+    "pseudonym": "Excited-Hubris",
+    "name": "0x778f2e2bcD50e54fED66EcF897A1Cab6308Bb69e-1772181488598",
+    "users": [
+      {
+        "id": "6267159",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+      "asset": "81606892344402586573031929734443915331150056535440927009653219432109303452609",
+      "conditionId": "0xa69e11f50b0bf4f051099758cdbad1233eae8a6b14d8becc03ae754219888397",
+      "avgPrice": 0.9979999999999999,
+      "totalBought": 56.9035,
+      "realizedPnl": 0.113807,
+      "curPrice": 1,
+      "title": "Will Ethereum dip to $2,000 on March 17?",
+      "slug": "will-ethereum-dip-to-2000-on-march-17",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-on-march-17",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "83562705152008352609808977967785091918494419448880700526967152503999879301427",
+      "endDate": "2026-03-18T00:00:00Z",
+      "timestamp": 1774246411
+    },
+    {
+      "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+      "asset": "53363817990122162127016113209858672107041633792011522230337043034643638311675",
+      "conditionId": "0x42071c83c175c5aa201a9c31bebaff28101ef2a7abe570ed2f41b616581df6fa",
+      "avgPrice": 0.999,
+      "totalBought": 56.786,
+      "realizedPnl": 0.056786,
+      "curPrice": 1,
+      "title": "Will Ethereum reach $2,600 March 2-8?",
+      "slug": "will-ethereum-reach-2600-march-2-8",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-march-2-8",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "35213274816936539992352481456383786433238667140294074951861170113516094912421",
+      "endDate": "2026-03-09T00:00:00Z",
+      "timestamp": 1773740475
+    },
+    {
+      "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+      "asset": "93815266804024626408177017095187582891750469887381362009777273444040338054062",
+      "conditionId": "0x0575450c9e044da1bd2821c2a87bd02bbbb7c3a0d22e1d0487d2f215b83a8041",
+      "avgPrice": 0.39999999999999997,
+      "totalBought": 8734.996665,
+      "realizedPnl": 5240.997999,
+      "curPrice": 1,
+      "title": "Will the price of Ethereum be above $2,100 on March 6?",
+      "slug": "ethereum-above-2100-on-march-6",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "ethereum-above-on-march-6",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Yes",
+      "oppositeAsset": "90818514185117763772441681921428388016490784725998350718688990602907381516914",
+      "endDate": "2026-03-06T00:00:00Z",
+      "timestamp": 1772849531
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+      "side": "BUY",
+      "asset": "89956272235970774227038126186635765009471448732617078854984435703274170865681",
+      "conditionId": "0x592b6412e2b035fccd8c72620700a55127f0747b49753ffb62149912b20037b1",
+      "size": 23.995982,
+      "price": 0.9959999969994977,
+      "timestamp": 1774246519,
+      "title": "Will XRP reach $3.20 in March?",
+      "slug": "will-xrp-reach-3pt2-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/XRP-logo.png",
+      "eventSlug": "what-price-will-xrp-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x778f2e2bcD50e54fED66EcF897A1Cab6308Bb69e-1772181488598",
+      "pseudonym": "Excited-Hubris",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x728ae74c82691b4addde2723239e5cdcb7efc0adf6022f855a5781aaf9eb56a7"
+    },
+    {
+      "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+      "side": "BUY",
+      "asset": "40865732454181129284141002213291490442997974733798116450386050673095273992071",
+      "conditionId": "0x027f673fb1a5f561630773407e511755d8e2e2282dd48a7df76c654ef1742c8a",
+      "size": 33.066,
+      "price": 0.998,
+      "timestamp": 1774246467,
+      "title": "Will Ethereum dip to $600 in March?",
+      "slug": "will-ethereum-dip-to-600-in-march-2026",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-in-march-2026",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x778f2e2bcD50e54fED66EcF897A1Cab6308Bb69e-1772181488598",
+      "pseudonym": "Excited-Hubris",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x72d749c11b2d4f5c33db76b77fb9129d1ded3193f1f56ef4305609324baac6a4"
+    },
+    {
+      "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+      "side": "BUY",
+      "asset": "81606892344402586573031929734443915331150056535440927009653219432109303452609",
+      "conditionId": "0xa69e11f50b0bf4f051099758cdbad1233eae8a6b14d8becc03ae754219888397",
+      "size": 56.9035,
+      "price": 0.998,
+      "timestamp": 1773740515,
+      "title": "Will Ethereum dip to $2,000 on March 17?",
+      "slug": "will-ethereum-dip-to-2000-on-march-17",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-on-march-17",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x778f2e2bcD50e54fED66EcF897A1Cab6308Bb69e-1772181488598",
+      "pseudonym": "Excited-Hubris",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x577824472e771cefe0d30b40865891b4dc29d5e8a367be6e80296bddbb758973"
+    },
+    {
+      "proxyWallet": "0x778f2e2bcd50e54fed66ecf897a1cab6308bb69e",
+      "side": "BUY",
+      "asset": "53363817990122162127016113209858672107041633792011522230337043034643638311675",
+      "conditionId": "0x42071c83c175c5aa201a9c31bebaff28101ef2a7abe570ed2f41b616581df6fa",
+      "size": 56.786,
+      "price": 0.999,
+      "timestamp": 1772866175,
+      "title": "Will Ethereum reach $2,600 March 2-8?",
+      "slug": "will-ethereum-reach-2600-march-2-8",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+      "eventSlug": "what-price-will-ethereum-hit-march-2-8",
+      "outcome": "No",
+      "outcomeIndex": 1,
+      "name": "0x778f2e2bcD50e54fED66EcF897A1Cab6308Bb69e-1772181488598",
+      "pseudonym": "Excited-Hubris",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0xf503649dc453374368df28b1de28f12ed1e37c3e96431807b4fa5dabe20db326"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "0x778f2e2bcD50e54fED66EcF897A1Cab6308Bb69e-1772181488598",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 66.22,
+    "score_profitability": 88.33,
+    "score_stability": 75.0,
+    "score_copyability": 37.34,
+    "score_focus": 41.25,
+    "score_execution": 87.48,
+    "realized_pnl_90d": 5241.1686,
+    "avg_trade_pnl_90d": 1747.0562,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 3025.8424,
+    "avg_trades_per_day_30d": 0.1333,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 0.75,
+    "btc_ratio": 0.0,
+    "market_concentration_hhi": 0.25,
+    "median_trade_notional": 44.8645,
+    "avg_trade_notional": 42.6047,
+    "trades_count": 4,
+    "closed_positions_count": 3
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 4.0,
+    "cycle5_first_minute_single_count": 1.0,
+    "cycle5_first_minute_single_ratio": 0.25
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}

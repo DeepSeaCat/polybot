@@ -1,0 +1,230 @@
+{
+  "leaderboard": {
+    "rank": "465",
+    "proxyWallet": "0x77f0f2e3880aeaad3d8168ec78d62b5c5f63d5a2",
+    "userName": "lylaoditss",
+    "xUsername": "",
+    "verifiedBadge": false,
+    "vol": 0,
+    "pnl": 10171,
+    "profileImage": ""
+  },
+  "profile": {
+    "createdAt": "2026-02-28T19:27:31.65508Z",
+    "proxyWallet": "0x77f0f2e3880aeaad3d8168ec78d62b5c5f63d5a2",
+    "displayUsernamePublic": true,
+    "pseudonym": "Moist-Rocker",
+    "name": "lylaoditss",
+    "users": [
+      {
+        "id": "6309669",
+        "creator": false,
+        "mod": false,
+        "communityMod": false
+      }
+    ],
+    "verifiedBadge": false
+  },
+  "current_positions": [],
+  "closed_positions": [
+    {
+      "proxyWallet": "0x77f0f2e3880aeaad3d8168ec78d62b5c5f63d5a2",
+      "asset": "2209031202733796390362991822422798983896754904620883216323201733893886885261",
+      "conditionId": "0xef21f5a03ad174bb9ab10bbea08644a0a7d4de00cd419282a0c4debc06957521",
+      "avgPrice": 0.5,
+      "totalBought": 11624,
+      "realizedPnl": 5812,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 3, 3AM ET",
+      "slug": "bitcoin-up-or-down-march-3-3am-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-3-3am-et",
+      "outcome": "Down",
+      "outcomeIndex": 1,
+      "oppositeOutcome": "Up",
+      "oppositeAsset": "111306007194537853599741039859460506882785100035233067183706838658824417826103",
+      "endDate": "2026-03-03T00:00:00Z",
+      "timestamp": 1772547121
+    },
+    {
+      "proxyWallet": "0x77f0f2e3880aeaad3d8168ec78d62b5c5f63d5a2",
+      "asset": "95145177774693709449309346527439267666612426017096298559388216265275628647567",
+      "conditionId": "0xf6e1f949ca4d7c7e4292de3e1c749cbdf6eb67a17f7da59a4f3a1cf64fe6e690",
+      "avgPrice": 0.5,
+      "totalBought": 5812,
+      "realizedPnl": 2906,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 2, 2PM ET",
+      "slug": "bitcoin-up-or-down-march-2-2pm-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-2-2pm-et",
+      "outcome": "Up",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "Down",
+      "oppositeAsset": "110434059826855697871758273939829711551196998680704329111079979335180393344890",
+      "endDate": "2026-03-02T00:00:00Z",
+      "timestamp": 1772507665
+    },
+    {
+      "proxyWallet": "0x77f0f2e3880aeaad3d8168ec78d62b5c5f63d5a2",
+      "asset": "41177081596246923370778101697898382288633656520048205563384415343386672976970",
+      "conditionId": "0x2fedccfbb001935390c0821eb0bdecdafe68d04a677fbfe05e482791995f4935",
+      "avgPrice": 0.5,
+      "totalBought": 2906,
+      "realizedPnl": 1453,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 2, 3AM ET",
+      "slug": "bitcoin-up-or-down-march-2-3am-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-2-3am-et",
+      "outcome": "Up",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "Down",
+      "oppositeAsset": "56192554611525179079362585934756593913075130463295229031275953876435167267526",
+      "endDate": "2026-03-02T00:00:00Z",
+      "timestamp": 1772461901
+    },
+    {
+      "proxyWallet": "0x77f0f2e3880aeaad3d8168ec78d62b5c5f63d5a2",
+      "asset": "32810141392427814981962651682456229887947828758895287773118104405034163756004",
+      "conditionId": "0xa48e34d0ac1b4b05f158f6715a643db2b91532d6ccc96202f2f8988d3c774c70",
+      "avgPrice": 0.5,
+      "totalBought": 1453,
+      "realizedPnl": 726.5,
+      "curPrice": 1,
+      "title": "Bitcoin Up or Down - March 1, 4PM ET",
+      "slug": "bitcoin-up-or-down-march-1-4pm-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-1-4pm-et",
+      "outcome": "Up",
+      "outcomeIndex": 0,
+      "oppositeOutcome": "Down",
+      "oppositeAsset": "85402894378152110289538736585129070692187953507198065511395983468789488434679",
+      "endDate": "2026-03-01T00:00:00Z",
+      "timestamp": 1772420337
+    }
+  ],
+  "trades": [
+    {
+      "proxyWallet": "0x77f0f2e3880aeaad3d8168ec78d62b5c5f63d5a2",
+      "side": "BUY",
+      "asset": "2209031202733796390362991822422798983896754904620883216323201733893886885261",
+      "conditionId": "0xef21f5a03ad174bb9ab10bbea08644a0a7d4de00cd419282a0c4debc06957521",
+      "size": 11624,
+      "price": 0.5,
+      "timestamp": 1772514069,
+      "title": "Bitcoin Up or Down - March 3, 3AM ET",
+      "slug": "bitcoin-up-or-down-march-3-3am-et",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+      "eventSlug": "bitcoin-up-or-down-march-3-3am-et",
+      "outcome": "Down",
+      "outcomeIndex": 1,
+      "name": "lylaoditss",
+      "pseudonym": "Moist-Rocker",
+      "bio": "",
+      "profileImage": "",
+      "profileImageOptimized": "",
+      "transactionHash": "0x5b5877299ee5cd53fe0ccfc78feba0a0fdc3240ab688efaca164f4aa7a53ece1"
+    }
+  ],
+  "activity": [],
+  "score": {
+    "name": "lylaoditss",
+    "x_username": "",
+    "verified": false,
+    "copyability_score": 71.38,
+    "score_profitability": 88.33,
+    "score_stability": 100.0,
+    "score_copyability": 36.03,
+    "score_focus": 100.0,
+    "score_execution": 0.0,
+    "realized_pnl_90d": 10897.5,
+    "avg_trade_pnl_90d": 2724.375,
+    "profit_factor_90d": 2.0,
+    "win_rate_90d": 1.0,
+    "max_drawdown_90d": 0.0,
+    "max_losing_streak_90d": 0,
+    "weekly_vol_90d": 0.0,
+    "avg_trades_per_day_30d": 0.0333,
+    "avg_hold_hours_90d": 0.0,
+    "near_settlement_ratio_90d": 0.0,
+    "crypto_ratio": 1.0,
+    "btc_ratio": 1.0,
+    "market_concentration_hhi": 1.0,
+    "median_trade_notional": 5812.0,
+    "avg_trade_notional": 5812.0,
+    "trades_count": 1,
+    "closed_positions_count": 4
+  },
+  "open_timing": {
+    "buy_count_with_open_time": 0.0,
+    "near_open_buy_ratio_10m": 0.0,
+    "near_open_buy_ratio_30m": 0.0,
+    "avg_open_delay_min": 0.0,
+    "median_open_delay_min": 0.0
+  },
+  "cycle5_timing": {
+    "cycle5_window_count": 1.0,
+    "cycle5_first_minute_single_count": 0.0,
+    "cycle5_first_minute_single_ratio": 0.0
+  },
+  "config": {
+    "base_url": "https://data-api.polymarket.com",
+    "gamma_base_url": "https://gamma-api.polymarket.com",
+    "request_timeout_sec": 20,
+    "sleep_between_requests_sec": 0.05,
+    "max_traders": 1000,
+    "max_market_lookups_per_trader": 0,
+    "leaderboard_category": "crypto",
+    "leaderboard_interval": "week",
+    "leaderboard_order_by": "pnl",
+    "analysis_windows_days": [
+      7,
+      30,
+      90
+    ],
+    "copyability_weights": {
+      "profitability": 0.28,
+      "stability": 0.24,
+      "copyability": 0.24,
+      "focus": 0.14,
+      "execution": 0.1
+    },
+    "api_paths": {
+      "leaderboard": [
+        "/v1/leaderboard",
+        "/leaderboard",
+        "/traders/leaderboard",
+        "/users/leaderboard"
+      ],
+      "public_profile": [
+        "https://gamma-api.polymarket.com/public-profile",
+        "/profile/{address}",
+        "/users/{address}/profile",
+        "/users/{address}"
+      ],
+      "current_positions": [
+        "/positions",
+        "/users/{address}/positions"
+      ],
+      "closed_positions": [
+        "/closed-positions",
+        "/positions/closed",
+        "/users/{address}/positions/closed"
+      ],
+      "user_activity": [
+        "/activity",
+        "/users/{address}/activity"
+      ],
+      "user_trades": [
+        "/trades",
+        "/users/{address}/trades"
+      ],
+      "accounting_snapshot": [
+        "/v1/accounting/snapshot",
+        "/accounting/{address}/snapshot",
+        "/accounting/snapshot/{address}"
+      ]
+    }
+  }
+}
