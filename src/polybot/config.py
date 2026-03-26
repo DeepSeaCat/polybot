@@ -59,6 +59,8 @@ class ApiPaths:
 class AnalyzerConfig:
     base_url: str = "https://data-api.polymarket.com"
     gamma_base_url: str = "https://gamma-api.polymarket.com"
+    http_proxy: str = ""
+    https_proxy: str = ""
     request_timeout_sec: int = 20
     sleep_between_requests_sec: float = 0.05
     max_traders: int = 50

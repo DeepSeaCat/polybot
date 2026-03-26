@@ -1,0 +1,99 @@
+{
+  "poll_interval_sec": 1.0,
+  "aggregation_window_sec": 2.0,
+  "history_limit_per_trader": 40,
+  "data_api_base_url": "https://data-api.polymarket.com",
+  "gamma_api_base_url": "https://gamma-api.polymarket.com",
+  "request_timeout_sec": 15,
+  "strategy_signal_file": "signals/manual_signals.jsonl",
+  "mongo": {
+    "enabled": false,
+    "uri": "mongodb://localhost:27017",
+    "database": "polybot"
+  },
+  "dashboard": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8088,
+    "refresh_sec": 3
+  },
+  "wallet": {
+    "mode": "paper",
+    "starting_balance_usdc": 1000,
+    "clob_host": "https://clob.polymarket.com",
+    "chain_id": 137,
+    "signature_type": 1,
+    "private_key_env": "POLYMARKET_PRIVATE_KEY",
+    "funder_env": "POLYMARKET_FUNDER",
+    "api_key_env": "POLYMARKET_API_KEY",
+    "api_secret_env": "POLYMARKET_API_SECRET",
+    "api_passphrase_env": "POLYMARKET_API_PASSPHRASE"
+  },
+  "risk": {
+    "min_order_usdc": 5,
+    "max_order_usdc": 250,
+    "max_total_exposure_usdc": 1000,
+    "max_market_exposure_usdc": 350,
+    "max_trader_exposure_usdc": 220,
+    "max_daily_loss_usdc": 120,
+    "max_open_positions": 20,
+    "max_slippage_bps": 120,
+    "max_leader_price_deviation_bps": 180
+  },
+  "traders": [
+    {
+      "address": "0x437bfe05a1e169b1443f16e718525a88b6f283b2",
+      "label": "crypto-swing",
+      "enabled": true,
+      "copy_ratio": 0.08,
+      "max_open_allocation_usdc": 200,
+      "max_order_usdc": 80,
+      "multiplier_tiers": [
+        {
+          "min_leader_notional_usdc": 0,
+          "multiplier": 1.0
+        },
+        {
+          "min_leader_notional_usdc": 50,
+          "multiplier": 1.15
+        },
+        {
+          "min_leader_notional_usdc": 150,
+          "multiplier": 1.35
+        }
+      ]
+    },
+    {
+      "address": "0x2222222222222222222222222222222222222222",
+      "label": "fast-btc",
+      "enabled": true,
+      "copy_ratio": 0.05,
+      "max_open_allocation_usdc": 150,
+      "max_order_usdc": 60,
+      "multiplier_tiers": [
+        {
+          "min_leader_notional_usdc": 0,
+          "multiplier": 1.0
+        },
+        {
+          "min_leader_notional_usdc": 100,
+          "multiplier": 1.25
+        }
+      ]
+    },
+    {
+      "address": "strategy:manual-alpha",
+      "label": "manual-alpha",
+      "enabled": true,
+      "copy_ratio": 0.1,
+      "max_open_allocation_usdc": 180,
+      "max_order_usdc": 90,
+      "multiplier_tiers": [
+        {
+          "min_leader_notional_usdc": 0,
+          "multiplier": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,8 @@
 import time
+import io
+import csv
+import zipfile
+import urllib3
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -14,6 +18,32 @@ class PolyDataApiClient:
     def __init__(self, config: AnalyzerConfig):
         self.config = config
         self.session = requests.Session()
+        proxies = {
+            "http": config.http_proxy,
+            "https": config.https_proxy,
+        }
+        self.session.proxies.update({k: v for k, v in proxies.items() if v})
+
+    def _get_with_ssl_fallback(
+        self,
+        url: str,
+        params: Optional[Dict[str, Any]] = None,
+        timeout: Optional[int] = None,
+    ) -> requests.Response:
+        try:
+            return self.session.get(
+                url,
+                params=params,
+                timeout=timeout or self.config.request_timeout_sec,
+            )
+        except requests.exceptions.SSLError:
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+            return self.session.get(
+                url,
+                params=params,
+                timeout=timeout or self.config.request_timeout_sec,
+                verify=False,
+            )
 
     def _request_candidates(
         self,
@@ -32,7 +62,7 @@ class PolyDataApiClient:
             else:
                 url = f"{self.config.base_url.rstrip('/')}{path}"
             try:
-                response = self.session.get(url, params=params, timeout=self.config.request_timeout_sec)
+                response = self._get_with_ssl_fallback(url, params=params)
                 if response.status_code in (400, 404, 422):
                     last_error = f"{url} -> {response.status_code}"
                     continue
@@ -149,11 +179,54 @@ class PolyDataApiClient:
             return f"{base}?user={address}"
         return None
 
+    def get_accounting_snapshot(self, address: str) -> Dict[str, Any]:
+        last_error: Optional[Exception] = None
+        for path_template in self.config.api_paths.accounting_snapshot:
+            path = path_template.format(address=address)
+            if path.startswith("http://") or path.startswith("https://"):
+                url = path
+            else:
+                url = f"{self.config.base_url.rstrip('/')}{path}"
+
+            try:
+                response = self._get_with_ssl_fallback(
+                    url,
+                    params={"user": address, "address": address},
+                )
+                if response.status_code in (400, 404, 422):
+                    continue
+                response.raise_for_status()
+                archive = zipfile.ZipFile(io.BytesIO(response.content))
+
+                equity_rows: List[Dict[str, Any]] = []
+                positions_rows: List[Dict[str, Any]] = []
+
+                for filename in archive.namelist():
+                    with archive.open(filename) as handle:
+                        text_stream = io.TextIOWrapper(handle, encoding="utf-8")
+                        reader = csv.DictReader(text_stream)
+                        rows = list(reader)
+                    if filename.endswith("equity.csv"):
+                        equity_rows = rows
+                    elif filename.endswith("positions.csv"):
+                        positions_rows = rows
+
+                result: Dict[str, Any] = {"equity_rows": equity_rows, "positions_rows": positions_rows}
+                if equity_rows:
+                    result.update(equity_rows[0])
+                return result
+            except (requests.RequestException, zipfile.BadZipFile, UnicodeDecodeError, csv.Error, OSError) as exc:
+                last_error = exc
+                continue
+
+        _ = last_error
+        return {}
+
     def get_market_by_slug(self, slug: str) -> Dict[str, Any]:
         url = f"{self.config.gamma_base_url.rstrip('/')}/markets"
         try:
             timeout = min(self.config.request_timeout_sec, 8)
-            response = self.session.get(url, params={"slug": slug, "limit": 1}, timeout=timeout)
+            response = self._get_with_ssl_fallback(url, params={"slug": slug, "limit": 1}, timeout=timeout)
             response.raise_for_status()
             payload = response.json()
             if isinstance(payload, list) and payload:
