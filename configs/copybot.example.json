@@ -1,13 +1,23 @@
 {
-  "poll_interval_sec": 1.0,
-  "aggregation_window_sec": 2.0,
+  "poll_interval_sec": 0.5,
+  "aggregation_window_sec": 0.5,
   "history_limit_per_trader": 40,
+  "leader_signal_max_age_sec": 8,
   "data_api_base_url": "https://data-api.polymarket.com",
   "gamma_api_base_url": "https://gamma-api.polymarket.com",
   "http_proxy": "",
   "https_proxy": "",
   "request_timeout_sec": 15,
   "strategy_signal_file": "signals/manual_signals.jsonl",
+  "market_ws": {
+    "enabled": true,
+    "url": "wss://ws-subscriptions-clob.polymarket.com/ws/market",
+    "ping_interval_sec": 10,
+    "reconnect_delay_sec": 2.0,
+    "stale_after_sec": 5,
+    "connect_timeout_sec": 10,
+    "custom_feature_enabled": true
+  },
   "mongo": {
     "enabled": true,
     "uri": "mongodb://localhost:27017",

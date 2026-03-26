@@ -4,7 +4,7 @@ import json
 import time
 import uuid
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 
@@ -46,26 +46,34 @@ class LeaderPollingSource:
         trader_configs: Iterable[TraderConfig],
         state: RuntimeStateSnapshot,
         history_limit: int,
+        max_signal_age_sec: int = 8,
     ):
         self.client = client
         self.trader_configs = [item for item in trader_configs if item.enabled]
         self.state = state
         self.history_limit = max(1, history_limit)
+        self.max_signal_age_sec = max(0, int(max_signal_age_sec))
 
     def poll(self) -> List[LeaderTradeEvent]:
+        # 这一层的职责不是“尽可能多地抓历史”，而是“尽可能快地拿到最新 leader 成交”。
+        # 因为我们是实时跟单，过旧的信号即使还没被处理，也往往已经失去复制价值。
         events: List[LeaderTradeEvent] = []
+        now = utc_now()
+        cutoff = now - timedelta(seconds=self.max_signal_age_sec) if self.max_signal_age_sec > 0 else None
         for trader in self.trader_configs:
-            rows = self.client.get_user_trades(trader.address, limit=self.history_limit)
+            # 实测里 activity 往往比 trades 更快出现最新成交，所以这里把 activity 放在优先位。
+            # 只有 activity 暂时拿不到 TRADE 数据时，才退回到 user_trades。
+            activity_rows = self.client.get_user_activity(
+                trader.address,
+                limit=max(self.history_limit * 3, 20),
+            )
+            rows = [
+                item
+                for item in activity_rows
+                if str(item.get("type", "")).upper() == "TRADE"
+            ]
             if not rows:
-                activity_rows = self.client.get_user_activity(
-                    trader.address,
-                    limit=max(self.history_limit * 3, 20),
-                )
-                rows = [
-                    item
-                    for item in activity_rows
-                    if str(item.get("type", "")).upper() == "TRADE"
-                ]
+                rows = self.client.get_user_trades(trader.address, limit=self.history_limit)
             grouped = self._normalize_rows(rows, trader)
             if not grouped:
                 continue
@@ -78,6 +86,8 @@ class LeaderPollingSource:
             fresh: List[LeaderTradeEvent] = []
             for event in grouped:
                 event_ts = int(event.observed_at.timestamp())
+                # 去重的主键不是简单的 tx hash，而是“时间戳 + event_id”双保险。
+                # 这样既能挡住同一轮 poll 的重复数据，也能挡住 activity / trades 两个源的重叠回包。
                 if event_ts > last_ts or (event_ts == last_ts and event.event_id not in last_ids):
                     fresh.append(event)
 
@@ -86,13 +96,20 @@ class LeaderPollingSource:
 
             newest_ts = int(fresh[-1].observed_at.timestamp())
             newest_ids = [item.event_id for item in fresh if int(item.observed_at.timestamp()) == newest_ts]
+            # 即使后面会把“太旧的信号”过滤掉，也要先推进 last_seen 游标。
+            # 否则 bot 重启或下一轮 poll 时，会把这批旧信号反复当成新信号再处理一次。
             self.state.last_seen[state_key] = {"timestamp": newest_ts, "event_ids": newest_ids}
+            if cutoff is not None:
+                fresh = [item for item in fresh if item.observed_at >= cutoff]
             events.extend(fresh)
 
         events.sort(key=lambda item: item.observed_at)
         return events
 
     def _normalize_rows(self, rows: List[Dict[str, Any]], trader: TraderConfig) -> List[LeaderTradeEvent]:
+        # 外部接口返回的常常是一笔真实成交拆成多条 fill。
+        # 这里先把同一 tx / token / side 的 fill 合并成一个 leader event，
+        # 后面的 sizing、聚合、风控都围绕这个更稳定的事件粒度来算。
         grouped: Dict[str, Dict[str, Any]] = {}
 
         for row in sorted(rows, key=lambda item: _safe_int(item.get("timestamp"), 0)):
@@ -125,6 +142,7 @@ class LeaderPollingSource:
             )
             bucket["weighted_notional"] += shares * price
             bucket["shares"] += shares
+            # 同一组合事件里保留最早时间戳，便于后面计算“从 leader 信号到我成交”这条延迟链。
             bucket["timestamp"] = min(bucket["timestamp"], timestamp)
             bucket["raw"].append(row)
 
@@ -523,6 +541,8 @@ class CopyIntentFactory:
         self.leader_equity_service = leader_equity_service
 
     def build(self, events: Iterable[LeaderTradeEvent]) -> List[SourceIntent]:
+        # 这一层把“leader 做了什么”翻译成“我准备怎么跟”。
+        # 它不负责风控，也不负责成交，只负责把复制仓位计算清楚。
         intents: List[SourceIntent] = []
         follower_equity = self.tracker.snapshot()["tracked_equity_usdc"]
         for event in events:
@@ -538,15 +558,20 @@ class CopyIntentFactory:
                     leader_equity = self.leader_equity_service.get_equity(trader)
                     if leader_equity <= 0 or follower_equity <= 0:
                         continue
+                    # “仓位比例跟单”的核心公式：
+                    # leader 本单占他总权益多少，我就拿自己总权益的同等比例去跟。
                     leader_fraction = event.leader_notional_usdc / leader_equity
                     requested_amount = follower_equity * leader_fraction * trader.copy_ratio * multiplier
                 else:
+                    # 固定名义金额模式则直接按 leader 成交额乘跟单比例。
                     requested_amount = event.leader_notional_usdc * trader.copy_ratio * multiplier
                 if trader.max_order_usdc > 0:
                     requested_amount = min(requested_amount, trader.max_order_usdc)
                 requested_shares = requested_amount / event.price if event.price > 0 else 0.0
                 close_plan: List[ClosePlanItem] = []
             else:
+                # SELL 不是重新决定开多少仓，而是根据 shadow lot 反推出我该平多少。
+                # 这样即使 leader 中间加仓、减仓、余额波动，我们也能按持仓映射关系平仓。
                 close_plan = self.tracker.plan_close(event.trader_address, event.token_id, event.leader_shares)
                 requested_shares = sum(item.follower_shares for item in close_plan)
                 requested_amount = requested_shares * event.price
@@ -589,6 +614,8 @@ class OrderAggregator:
 
     def add(self, intents: Iterable[SourceIntent]) -> None:
         for intent in intents:
+            # 当前聚合粒度是 token_id + side。
+            # 也就是说，同一 outcome 上连续出现的小 BUY 会被并成一张单，以减少碎单。
             key = f"{intent.token_id}:{intent.side}"
             current = self.pending.get(key)
             weight = intent.requested_amount_usdc if intent.side == "BUY" else intent.requested_shares
@@ -612,6 +639,8 @@ class OrderAggregator:
             existing_weight = current.requested_amount_usdc if current.side == "BUY" else current.requested_shares
             total_weight = existing_weight + weight
             if total_weight > 0:
+                # 聚合单的参考价不是简单取最新价，而是按订单权重做加权均价。
+                # 这样 dashboard 里 leader price deviation 的口径更接近真实聚合成本。
                 current.reference_price = (
                     current.reference_price * existing_weight + intent.leader_reference_price * weight
                 ) / total_weight
@@ -631,6 +660,8 @@ class OrderAggregator:
         remove_keys: List[str] = []
         for key, order in self.pending.items():
             age = (now - order.last_updated_at).total_seconds()
+            # 聚合窗口的意义是“牺牲一点点时间，换更像真实可执行订单的体量”。
+            # 窗口越大，碎单越少，但复制 leader 的时间偏差也会越大。
             if force or age >= self.window_sec:
                 ready.append(order)
                 remove_keys.append(key)
@@ -649,6 +680,8 @@ class RiskManager:
         self.trader_lookup = trader_lookup
 
     def evaluate(self, order: AggregatedOrder) -> Tuple[bool, str]:
+        # 风控只回答一个问题：这张聚合单此刻能不能发。
+        # 它不修改订单，只给出 pass / reject 及其原因，方便 dashboard 和日志追踪。
         snapshot = self.tracker.snapshot()
 
         if order.side == "SELL":

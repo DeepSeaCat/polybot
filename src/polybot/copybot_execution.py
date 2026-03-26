@@ -34,13 +34,24 @@ def _bps_delta(base: float, quote: float) -> float:
 
 
 class ClobReadOnlyClient:
-    def __init__(self, host: str, timeout_sec: int = 10, proxies: Dict[str, str] | None = None):
+    def __init__(
+        self,
+        host: str,
+        timeout_sec: int = 10,
+        proxies: Dict[str, str] | None = None,
+        ws_client=None,
+    ):
         self.host = host.rstrip("/")
         self.timeout_sec = timeout_sec
         self.session = requests.Session()
         self.last_books: Dict[str, Dict[str, Any]] = {}
+        self.ws_client = ws_client
         if proxies:
             self.session.proxies.update({k: v for k, v in proxies.items() if v})
+
+    @property
+    def has_ws_client(self) -> bool:
+        return self.ws_client is not None
 
     def _get_with_ssl_fallback(self, path: str, params: Dict[str, Any]) -> requests.Response:
         url = f"{self.host}{path}"
@@ -60,6 +71,9 @@ class ClobReadOnlyClient:
             )
 
     def get_order_book(self, token_id: str) -> Dict[str, Any]:
+        ws_book = self.get_ws_order_book(token_id)
+        if ws_book:
+            return ws_book
         try:
             response = self._get_with_ssl_fallback("/book", {"token_id": token_id})
             if response.status_code == 404:
@@ -72,6 +86,20 @@ class ClobReadOnlyClient:
         except requests.RequestException:
             pass
         return dict(self.last_books.get(token_id, {}))
+
+    def get_ws_order_book(self, token_id: str) -> Dict[str, Any]:
+        if self.ws_client is None:
+            return {}
+        ws_book = self.ws_client.get_order_book(token_id)
+        if ws_book:
+            self.last_books[token_id] = ws_book
+            return dict(ws_book)
+        return {}
+
+    def get_mark_price(self, token_id: str) -> float:
+        if self.ws_client is None:
+            return 0.0
+        return _float(self.ws_client.get_mark_price(token_id), 0.0)
 
 
 class PaperExecutor:
@@ -94,16 +122,38 @@ class PaperExecutor:
         self.random_uniform = random_uniform or random.uniform
 
     def execute(self, order: AggregatedOrder) -> ExecutionResult:
+        # 先统一模拟“我发现信号 -> 做决策 -> 发出请求”这段链路延迟。
+        # 注意这部分延迟发生在真正读取盘口之前，所以会直接改变最终成交价。
         delay_ms = self._execution_delay_ms()
         if delay_ms > 0:
             self.sleeper(delay_ms / 1000.0)
 
         try:
-            reference_market_price = self._lookup_market_price(order)
-            if reference_market_price > 0:
-                simulated = self._simulate_from_market_price(order, reference_market_price)
+            ws_enabled = bool(getattr(self.market_client, "has_ws_client", False))
+            if ws_enabled:
+                # 有 WS 时优先等 WS 盘口。
+                # 只有 WS 在超时窗口内完全拿不到可执行深度时，才考虑退回 REST / Gamma。
+                simulated = self._simulate_with_timeout(order, ws_only=True)
+                if simulated[2] <= 0 and not simulated[6]:
+                    live_book = self.market_client.get_order_book(order.token_id)
+                    if live_book:
+                        simulated = self._simulate_with_timeout(order)
+                    else:
+                        reference_market_price = self._lookup_market_price(order)
+                        if reference_market_price > 0:
+                            simulated = self._simulate_from_market_price(order, reference_market_price)
+                        else:
+                            simulated = self._simulate_with_timeout(order)
             else:
-                simulated = self._simulate_with_timeout(order)
+                live_book = self.market_client.get_order_book(order.token_id)
+                if live_book:
+                    simulated = self._simulate_with_timeout(order)
+                else:
+                    reference_market_price = self._lookup_market_price(order)
+                    if reference_market_price > 0:
+                        simulated = self._simulate_from_market_price(order, reference_market_price)
+                    else:
+                        simulated = self._simulate_with_timeout(order)
         except Exception as exc:
             return ExecutionResult(
                 execution_id=str(uuid.uuid4()),
@@ -134,6 +184,9 @@ class PaperExecutor:
             timed_out,
             poll_count,
         ) = simulated
+        # 这里同时保留两条偏差口径：
+        # 1. slippage_bps：相对我看到的 best price 偏了多少
+        # 2. leader_deviation_bps：相对 leader 当时成交价偏了多少
         slippage_bps = _bps_delta(best_price, avg_price)
         leader_deviation_bps = _bps_delta(order.reference_price, avg_price)
 
@@ -259,6 +312,8 @@ class PaperExecutor:
         jitter = 0.0
         if self.simulation.latency_jitter_ms > 0:
             jitter = self.random_uniform(0, self.simulation.latency_jitter_ms)
+        # 这里故意把监听、决策、提交三段延迟相加，而不是只模拟“网络耗时”。
+        # 因为真实跟单里，最致命的往往不是单纯 RTT，而是整条发现到执行的总链路时间。
         return int(
             self.simulation.signal_detect_delay_ms
             + self.simulation.decision_delay_ms
@@ -302,7 +357,10 @@ class PaperExecutor:
     def _simulate_with_timeout(
         self,
         order: AggregatedOrder,
+        ws_only: bool = False,
     ) -> Tuple[float, float, float, float, str, Dict[str, Any], bool, int]:
+        # 这是 paper 执行器的核心：
+        # 在 fill_timeout 窗口内反复读取盘口，按买卖方向去吃深度，直到全成、部分成、或超时为止。
         requested_metric = order.requested_amount_usdc if order.side == "BUY" else order.requested_shares
         if requested_metric <= 0:
             return 0.0, 0.0, 0.0, 0.0, "empty-request", {}, False, 0
@@ -321,11 +379,18 @@ class PaperExecutor:
         poll_interval_sec = max(0.01, self.simulation.poll_interval_ms / 1000.0)
 
         while True:
-            latest_book = self.market_client.get_order_book(order.token_id)
+            latest_book = self._get_book(order.token_id, ws_only=ws_only)
             signature = self._book_signature(latest_book)
-            price_source = "delayed_orderbook" if self.simulation.use_delayed_book_snapshot else "orderbook"
+            book_source = str(latest_book.get("_source", "")).strip()
+            if book_source == "ws_market":
+                price_source = "ws_orderbook"
+            elif ws_only:
+                price_source = "ws_orderbook"
+            else:
+                price_source = "delayed_orderbook" if self.simulation.use_delayed_book_snapshot else "orderbook"
 
             if signature != last_signature or not signature:
+                # 只有盘口真的变了，才重新消费一次快照，避免同一深度被重复吃多次。
                 fill = self._consume_snapshot(
                     order=order,
                     book=latest_book,
@@ -364,6 +429,13 @@ class PaperExecutor:
         avg_price = executed_amount / executed_shares if executed_shares > 0 else 0.0
         return best_price, executed_amount, executed_shares, avg_price, price_source, latest_book, timed_out, poll_count
 
+    def _get_book(self, token_id: str, ws_only: bool = False) -> Dict[str, Any]:
+        if ws_only:
+            getter = getattr(self.market_client, "get_ws_order_book", None)
+            if callable(getter):
+                return getter(token_id)
+        return self.market_client.get_order_book(token_id)
+
     def _consume_snapshot(
         self,
         order: AggregatedOrder,
@@ -390,6 +462,8 @@ class PaperExecutor:
         best_ask = asks[0][0]
         max_price = accepted_price_bound
         if max_price <= 0:
+            # BUY 的价格上限从当前 best ask 推出来，而不是从 leader 成交价直接推。
+            # 这表示我们约束的是“我当下看到的最优卖一被容忍偏离多少”。
             max_price = best_ask * (1 + self.risk.max_slippage_bps / 10000.0)
         remaining = amount_usdc
         spent = 0.0
@@ -426,6 +500,7 @@ class PaperExecutor:
         best_bid = bids[0][0]
         min_price = accepted_price_bound
         if min_price <= 0:
+            # SELL 和 BUY 对称：从 best bid 反推一个我能接受的最低卖价。
             min_price = best_bid * (1 - self.risk.max_slippage_bps / 10000.0)
         remaining = shares_to_sell
         notional = 0.0
@@ -463,6 +538,8 @@ class PaperExecutor:
             value = book.get(key)
             if value:
                 return str(value)
+        # 某些来源没有显式 hash/timestamp 时，退回到前几档盘口内容做指纹。
+        # 这样最少可以避免同一份静态快照被重复消费。
         bids = tuple((str(item.get("price")), str(item.get("size"))) for item in book.get("bids", [])[:8] if isinstance(item, dict))
         asks = tuple((str(item.get("price")), str(item.get("size"))) for item in book.get("asks", [])[:8] if isinstance(item, dict))
         if not bids and not asks:
@@ -614,8 +691,9 @@ def build_executor(
     market_price_lookup=None,
     timeout_sec: int = 10,
     proxies: Dict[str, str] | None = None,
+    ws_client=None,
 ):
-    market_client = ClobReadOnlyClient(wallet.clob_host, timeout_sec=timeout_sec, proxies=proxies)
+    market_client = ClobReadOnlyClient(wallet.clob_host, timeout_sec=timeout_sec, proxies=proxies, ws_client=ws_client)
     if wallet.mode == "live":
         return LiveExecutor(market_client, wallet, risk)
     return PaperExecutor(

@@ -238,16 +238,41 @@ class PaperSimulationConfig:
 
 
 @dataclass
+class MarketWebsocketConfig:
+    enabled: bool = False
+    url: str = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
+    ping_interval_sec: int = 10
+    reconnect_delay_sec: float = 2.0
+    stale_after_sec: int = 5
+    connect_timeout_sec: int = 10
+    custom_feature_enabled: bool = True
+
+    @classmethod
+    def from_dict(cls, payload: Dict[str, Any]) -> "MarketWebsocketConfig":
+        return cls(
+            enabled=bool(payload.get("enabled", False)),
+            url=str(payload.get("url", "wss://ws-subscriptions-clob.polymarket.com/ws/market")),
+            ping_interval_sec=int(payload.get("ping_interval_sec", 10)),
+            reconnect_delay_sec=float(payload.get("reconnect_delay_sec", 2.0)),
+            stale_after_sec=int(payload.get("stale_after_sec", 5)),
+            connect_timeout_sec=int(payload.get("connect_timeout_sec", 10)),
+            custom_feature_enabled=bool(payload.get("custom_feature_enabled", True)),
+        )
+
+
+@dataclass
 class RuntimeConfig:
     poll_interval_sec: float = 1.0
     aggregation_window_sec: float = 2.0
     history_limit_per_trader: int = 50
+    leader_signal_max_age_sec: int = 8
     data_api_base_url: str = "https://data-api.polymarket.com"
     gamma_api_base_url: str = "https://gamma-api.polymarket.com"
     http_proxy: str = ""
     https_proxy: str = ""
     request_timeout_sec: int = 20
     strategy_signal_file: str = ""
+    market_ws: MarketWebsocketConfig = field(default_factory=MarketWebsocketConfig)
     mongo: MongoConfig = field(default_factory=MongoConfig)
     dashboard: DashboardConfig = field(default_factory=DashboardConfig)
     wallet: WalletConfig = field(default_factory=WalletConfig)
@@ -261,12 +286,14 @@ class RuntimeConfig:
             poll_interval_sec=float(payload.get("poll_interval_sec", 1.0)),
             aggregation_window_sec=float(payload.get("aggregation_window_sec", 2.0)),
             history_limit_per_trader=int(payload.get("history_limit_per_trader", 50)),
+            leader_signal_max_age_sec=int(payload.get("leader_signal_max_age_sec", 8)),
             data_api_base_url=str(payload.get("data_api_base_url", "https://data-api.polymarket.com")),
             gamma_api_base_url=str(payload.get("gamma_api_base_url", "https://gamma-api.polymarket.com")),
             http_proxy=str(payload.get("http_proxy", "")),
             https_proxy=str(payload.get("https_proxy", "")),
             request_timeout_sec=int(payload.get("request_timeout_sec", 20)),
             strategy_signal_file=str(payload.get("strategy_signal_file", "")),
+            market_ws=MarketWebsocketConfig.from_dict(payload.get("market_ws", {})),
             mongo=MongoConfig.from_dict(payload.get("mongo", {})),
             dashboard=DashboardConfig.from_dict(payload.get("dashboard", {})),
             wallet=WalletConfig.from_dict(payload.get("wallet", {})),

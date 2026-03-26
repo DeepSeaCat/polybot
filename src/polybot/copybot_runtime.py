@@ -9,6 +9,7 @@ from .client import PolyDataApiClient
 from .config import AnalyzerConfig
 from .copybot_dashboard import DashboardServer
 from .copybot_execution import build_executor
+from .copybot_market_ws import MarketWebSocketClient
 from .copybot_models import RuntimeConfig, to_primitive, utc_now
 from .copybot_services import (
     CopyIntentFactory,
@@ -37,6 +38,19 @@ class CopyTradingRuntime:
         self.risk = RiskManager(config.risk, self.tracker, self.trader_lookup)
         self.market_cache: Dict[str, Dict[str, Any]] = {}
         proxies = {"http": config.http_proxy, "https": config.https_proxy}
+        self.market_ws_client: MarketWebSocketClient | None = None
+        if config.market_ws.enabled:
+            self.market_ws_client = MarketWebSocketClient(
+                url=config.market_ws.url,
+                ping_interval_sec=config.market_ws.ping_interval_sec,
+                reconnect_delay_sec=config.market_ws.reconnect_delay_sec,
+                stale_after_sec=config.market_ws.stale_after_sec,
+                connect_timeout_sec=config.market_ws.connect_timeout_sec,
+                custom_feature_enabled=config.market_ws.custom_feature_enabled,
+                http_proxy=config.http_proxy,
+                https_proxy=config.https_proxy,
+            )
+            self.market_ws_client.start()
         self.executor = build_executor(
             config.wallet,
             config.risk,
@@ -44,6 +58,7 @@ class CopyTradingRuntime:
             market_price_lookup=self.lookup_market_price,
             timeout_sec=config.request_timeout_sec,
             proxies=proxies,
+            ws_client=self.market_ws_client,
         )
         self.dashboard_server: Optional[DashboardServer] = None
         self.leader_position_cache: Dict[str, Dict[str, Any]] = {}
@@ -69,10 +84,19 @@ class CopyTradingRuntime:
                 trader_configs=config.traders,
                 state=self.state,
                 history_limit=config.history_limit_per_trader,
+                max_signal_age_sec=config.leader_signal_max_age_sec,
             )
         ]
         if config.strategy_signal_file:
             self.signal_sources.append(FileSignalSource(config.strategy_signal_file, self.state))
+
+    def _prime_market_ws(self, token_ids: List[str]) -> None:
+        if self.market_ws_client is None:
+            return
+        normalized = sorted({str(item).strip() for item in token_ids if str(item).strip()})
+        if not normalized:
+            return
+        self.market_ws_client.ensure_assets(normalized)
 
     @staticmethod
     def _float(value: Any, default: float = 0.0) -> float:
@@ -138,6 +162,11 @@ class CopyTradingRuntime:
         return market
 
     def lookup_market_price(self, market_slug: str, outcome: str, token_id: str = "") -> float:
+        market_client = getattr(self.executor, "market_client", None)
+        if market_client is not None and token_id:
+            live_price = self._float(getattr(market_client, "get_mark_price", lambda _: 0.0)(token_id), 0.0)
+            if live_price > 0:
+                return live_price
         if not market_slug:
             return 0.0
         market = self.lookup_market(market_slug)
@@ -210,6 +239,7 @@ class CopyTradingRuntime:
             )
 
     def _normalize_leader_positions(self, rows: List[Dict[str, Any]], trader) -> List[Dict[str, Any]]:
+        # 当前持仓接口的粒度比较散，这里把 leader 侧数据先整理成 dashboard 友好的聚合结构。
         grouped: Dict[str, Dict[str, Any]] = {}
         for row in rows:
             token_id = str(row.get("asset", "")).strip()
@@ -304,6 +334,8 @@ class CopyTradingRuntime:
         mark_prices: Dict[str, float] = {}
         market_value = 0.0
         total_cost_basis = 0.0
+        # 提前把当前 open position 的 token 订阅给 WS，尽量让估值使用实时盘口而不是落回旧标记价。
+        self._prime_market_ws([str(item.get("token_id", "")) for item in positions])
 
         for position in positions:
             token_id = str(position.get("token_id", ""))
@@ -356,8 +388,16 @@ class CopyTradingRuntime:
             host=self.config.dashboard.host,
             port=self.config.dashboard.port,
         )
+        if self.market_ws_client is not None:
+            self.log(
+                "INFO",
+                "market websocket started",
+                url=self.config.market_ws.url,
+                connected=self.market_ws_client.is_connected(),
+            )
 
     def _collect_events(self) -> List[Any]:
+        # 所有信号源统一在这里汇总，后面 runtime 不关心它们来自 activity、strategy 文件还是别的来源。
         events = []
         for source in self.signal_sources:
             try:
@@ -367,6 +407,8 @@ class CopyTradingRuntime:
         return sorted(events, key=lambda item: item.observed_at)
 
     def _process_orders(self, orders: List[Any]) -> None:
+        # runtime 对订单的处理顺序是：
+        # 记录 -> 风控 -> 执行 -> 落库执行结果 -> 更新 shadow lot / 现金余额。
         for order in orders:
             order_doc = to_primitive(order)
             self.repository.record_order(order_doc, status="pending")
@@ -422,10 +464,14 @@ class CopyTradingRuntime:
         cycles = 0
         try:
             while True:
+                # 主循环保持简单固定：
+                # 抓 leader 信号 -> 生成复制意图 -> 聚合成订单 -> 执行 -> 刷新持仓/估值/结算。
                 cycle_start = time.monotonic()
                 cycles += 1
                 events = self._collect_events()
                 if events:
+                    # 先订阅即将可能交易到的 token，给后面的 paper 执行留出一点 WS 预热时间。
+                    self._prime_market_ws([str(item.token_id) for item in events])
                     self.repository.record_leader_events([to_primitive(item) for item in events])
                     intents = self.intent_factory.build(events)
                     if intents:
@@ -439,6 +485,7 @@ class CopyTradingRuntime:
 
                 ready_orders = self.aggregator.flush_ready()
                 if ready_orders:
+                    self._prime_market_ws([str(item.token_id) for item in ready_orders])
                     self._process_orders(ready_orders)
 
                 self._refresh_leader_positions()
@@ -451,18 +498,22 @@ class CopyTradingRuntime:
                     break
 
                 elapsed = time.monotonic() - cycle_start
+                # 这里不是简单 sleep 固定秒数，而是扣掉本轮处理耗时，尽量维持稳定的 poll 节奏。
                 time.sleep(max(0.0, self.config.poll_interval_sec - elapsed))
         except KeyboardInterrupt:
             self.log("INFO", "copybot runtime interrupted by user")
         finally:
             ready_orders = self.aggregator.flush_ready(force=True)
             if ready_orders:
+                self._prime_market_ws([str(item.token_id) for item in ready_orders])
                 self._process_orders(ready_orders)
             self._refresh_leader_positions()
             self._settle_resolved_markets()
             self._refresh_mark_to_market()
             self.state.updated_at = utc_now()
             self.repository.save_runtime_state(self.state)
+            if self.market_ws_client is not None:
+                self.market_ws_client.stop()
 
 
 def load_runtime(path: Path) -> CopyTradingRuntime:

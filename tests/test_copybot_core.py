@@ -14,7 +14,8 @@ from src.polybot.copybot_models import (
 )
 from src.polybot.copybot_dashboard import build_dashboard_payload
 from src.polybot.copybot_execution import PaperExecutor
-from src.polybot.copybot_services import CopyIntentFactory, OrderAggregator, PositionTracker, RiskManager
+from src.polybot.copybot_market_ws import MarketWebSocketClient
+from src.polybot.copybot_services import CopyIntentFactory, LeaderPollingSource, OrderAggregator, PositionTracker, RiskManager
 from src.polybot.copybot_storage import InMemoryRepository
 from src.polybot.copybot_models import MultiplierTier, RiskConfig, SourceIntent
 
@@ -51,9 +52,65 @@ class DummyMarketClient:
         return self.books[-1] if self.books else {}
 
 
+class DummyWsMarketClient:
+    def __init__(self, book):
+        self.book = book
+        self.has_ws_client = True
+
+    def get_order_book(self, token_id: str):
+        return dict(self.book)
+
+    def get_ws_order_book(self, token_id: str):
+        return dict(self.book)
+
+    def get_mark_price(self, token_id: str):
+        best_bid = float(self.book.get("best_bid", 0.0) or 0.0)
+        best_ask = float(self.book.get("best_ask", 0.0) or 0.0)
+        if best_bid > 0 and best_ask > 0:
+            return (best_bid + best_ask) / 2.0
+        return 0.0
+
+
+class DummyDelayedWsMarketClient:
+    has_ws_client = True
+
+    def __init__(self, ws_books, rest_book=None):
+        self.ws_books = list(ws_books)
+        self.rest_book = dict(rest_book or {})
+        self.index = 0
+
+    def get_ws_order_book(self, token_id: str):
+        if self.index < len(self.ws_books):
+            book = self.ws_books[self.index]
+            self.index += 1
+            return dict(book)
+        return dict(self.ws_books[-1]) if self.ws_books else {}
+
+    def get_order_book(self, token_id: str):
+        book = self.get_ws_order_book(token_id)
+        if book:
+            return book
+        return dict(self.rest_book)
+
+
 class ExplodingMarketClient:
     def get_order_book(self, token_id: str):
         raise RuntimeError("simulated order book failure")
+
+
+class FakeSignalClient:
+    def __init__(self, activity_rows=None, trade_rows=None):
+        self.activity_rows = list(activity_rows or [])
+        self.trade_rows = list(trade_rows or [])
+        self.calls = []
+
+    def get_user_activity(self, address: str, limit: int = 500):
+        self.calls.append(("activity", address, limit))
+        return list(self.activity_rows)
+
+    def get_user_trades(self, address: str, limit: int = 2000):
+        self.calls.append(("trades", address, limit))
+        return list(self.trade_rows)
 
 
 def trader(address: str, ratio: float = 0.1, max_alloc: float = 100.0) -> TraderConfig:
@@ -340,6 +397,162 @@ def test_dashboard_builds_per_order_difference_rows():
     assert round(row["execution_gap_bps"], 6) == 2500.0
     assert row["signal_to_fill_ms"] == 2000
     assert row["status"] == "simulated"
+
+
+def test_market_ws_client_updates_book_and_mark_price():
+    client = MarketWebSocketClient("wss://example.com/ws/market")
+    client.apply_payload(
+        {
+            "event_type": "book",
+            "asset_id": "token-1",
+            "market": "market-1",
+            "bids": [{"price": "0.44", "size": "10"}],
+            "asks": [{"price": "0.46", "size": "8"}],
+            "timestamp": "2026-03-26T00:00:00Z",
+            "hash": "hash-1",
+        }
+    )
+    client.apply_payload(
+        {
+            "event_type": "last_trade_price",
+            "asset_id": "token-1",
+            "price": "0.45",
+            "timestamp": "2026-03-26T00:00:01Z",
+        }
+    )
+    book = client.get_order_book("token-1")
+    assert book["asset_id"] == "token-1"
+    assert float(book["bids"][0]["price"]) == 0.44
+    assert float(book["asks"][0]["price"]) == 0.46
+    assert book["_source"] == "ws_market"
+    assert round(client.get_mark_price("token-1"), 6) == 0.45
+
+
+def test_market_ws_client_caps_corrected_best_price_to_visible_top_size():
+    client = MarketWebSocketClient("wss://example.com/ws/market")
+    client.apply_payload(
+        {
+            "asset_id": "token-1",
+            "market": "market-1",
+            "bids": [{"price": "0.20", "size": "15"}],
+            "asks": [{"price": "0.99", "size": "7"}],
+            "timestamp": "2026-03-26T00:00:00Z",
+            "hash": "hash-1",
+        }
+    )
+    client.apply_payload(
+        {
+            "event_type": "best_bid_ask",
+            "asset_id": "token-1",
+            "best_bid": "0.20",
+            "best_ask": "0.01",
+            "timestamp": "2026-03-26T00:00:01Z",
+        }
+    )
+    book = client.get_order_book("token-1")
+    assert float(book["asks"][0]["price"]) == 0.01
+    assert float(book["asks"][0]["size"]) == 7.0
+
+
+def test_paper_executor_prefers_ws_orderbook_when_available():
+    clock = FakeClock()
+    market = DummyWsMarketClient(
+        {
+            "_source": "ws_market",
+            "hash": "ws-book-1",
+            "best_bid": 0.44,
+            "best_ask": 0.46,
+            "asks": [{"price": "0.46", "size": "100"}],
+            "bids": [{"price": "0.44", "size": "100"}],
+        }
+    )
+    executor = PaperExecutor(
+        market,
+        RiskConfig(max_slippage_bps=10000),
+        simulation=PaperSimulationConfig(
+            enabled=True,
+            signal_detect_delay_ms=0,
+            decision_delay_ms=0,
+            submit_delay_ms=0,
+            exchange_ack_delay_ms=0,
+            latency_jitter_ms=0,
+            fill_timeout_ms=50,
+            poll_interval_ms=25,
+            allow_partial_fill=True,
+            use_delayed_book_snapshot=True,
+        ),
+        sleeper=clock.sleep,
+        monotonic=clock.monotonic,
+    )
+    order = AggregatedOrder(
+        order_id="paper-ws-book",
+        token_id="token-1",
+        side="BUY",
+        requested_amount_usdc=4.6,
+        requested_shares=10.0,
+        reference_price=0.46,
+        market_slug="market-1",
+        market_title="Market 1",
+        outcome="Yes",
+        components=[],
+    )
+    result = executor.execute(order)
+    assert result.status == "simulated"
+    assert round(result.avg_price, 6) == 0.46
+    assert result.price_source == "ws_orderbook"
+
+
+def test_paper_executor_waits_for_ws_before_falling_back_to_market_price():
+    clock = FakeClock()
+    market = DummyDelayedWsMarketClient(
+        [
+            {},
+            {},
+            {
+                "_source": "ws_market",
+                "hash": "ws-book-2",
+                "best_bid": 0.44,
+                "best_ask": 0.46,
+                "asks": [{"price": "0.46", "size": "100"}],
+                "bids": [{"price": "0.44", "size": "100"}],
+            },
+        ]
+    )
+    executor = PaperExecutor(
+        market,
+        RiskConfig(max_slippage_bps=10000),
+        simulation=PaperSimulationConfig(
+            enabled=True,
+            signal_detect_delay_ms=0,
+            decision_delay_ms=0,
+            submit_delay_ms=0,
+            exchange_ack_delay_ms=0,
+            latency_jitter_ms=0,
+            fill_timeout_ms=100,
+            poll_interval_ms=25,
+            allow_partial_fill=True,
+            use_delayed_book_snapshot=True,
+        ),
+        market_price_lookup=lambda slug, outcome, token_id: 0.315,
+        sleeper=clock.sleep,
+        monotonic=clock.monotonic,
+    )
+    order = AggregatedOrder(
+        order_id="paper-ws-late-book",
+        token_id="token-1",
+        side="BUY",
+        requested_amount_usdc=4.6,
+        requested_shares=10.0,
+        reference_price=0.46,
+        market_slug="market-1",
+        market_title="Market 1",
+        outcome="Yes",
+        components=[],
+    )
+    result = executor.execute(order)
+    assert result.status == "simulated"
+    assert round(result.avg_price, 6) == 0.46
+    assert result.price_source == "ws_orderbook"
 
 
 def test_risk_rejects_trader_exposure_breach():
@@ -683,6 +896,81 @@ def test_paper_executor_prefers_market_price_lookup_when_available():
     assert round(result.avg_price, 6) == 0.315
     assert round(result.executed_shares, 6) == 10.0
     assert result.price_source == "gamma_outcome"
+
+
+def test_leader_polling_source_prefers_activity_feed():
+    now = utc_now()
+    ts = int(now.timestamp())
+    client = FakeSignalClient(
+        activity_rows=[
+            {
+                "timestamp": ts,
+                "type": "TRADE",
+                "side": "BUY",
+                "asset": "token-1",
+                "conditionId": "cond-1",
+                "slug": "market-1",
+                "title": "Market 1",
+                "outcome": "Yes",
+                "price": 0.42,
+                "size": 10,
+                "transactionHash": "0xabc",
+            }
+        ],
+        trade_rows=[
+            {
+                "timestamp": ts,
+                "type": "TRADE",
+                "side": "BUY",
+                "asset": "token-1",
+                "conditionId": "cond-1",
+                "slug": "market-1",
+                "title": "Market 1",
+                "outcome": "Yes",
+                "price": 0.99,
+                "size": 10,
+                "transactionHash": "0xdef",
+            }
+        ],
+    )
+    state = RuntimeStateSnapshot()
+    source = LeaderPollingSource(client, [trader("0xabc")], state, history_limit=20, max_signal_age_sec=8)
+
+    events = source.poll()
+
+    assert len(events) == 1
+    assert round(events[0].price, 6) == 0.42
+    assert [call[0] for call in client.calls] == ["activity"]
+
+
+def test_leader_polling_source_drops_stale_events_but_advances_cursor():
+    stale_ts = int((utc_now() - timedelta(seconds=30)).timestamp())
+    client = FakeSignalClient(
+        activity_rows=[
+            {
+                "timestamp": stale_ts,
+                "type": "TRADE",
+                "side": "BUY",
+                "asset": "token-1",
+                "conditionId": "cond-1",
+                "slug": "market-1",
+                "title": "Market 1",
+                "outcome": "Yes",
+                "price": 0.42,
+                "size": 10,
+                "transactionHash": "0xabc",
+            }
+        ]
+    )
+    state = RuntimeStateSnapshot()
+    source = LeaderPollingSource(client, [trader("0xabc")], state, history_limit=20, max_signal_age_sec=8)
+
+    first = source.poll()
+    second = source.poll()
+
+    assert first == []
+    assert second == []
+    assert state.last_seen["0xabc"]["timestamp"] == stale_ts
 
 
 def test_position_tracker_can_settle_resolved_market():
